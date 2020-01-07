@@ -227,6 +227,20 @@ function getMetaSnes(){
 </app>' > ./base/code/app.xml
 }
 
+function getIcon(){
+    # convert pngs to correct tgas for the splashscreen and icon
+    echo Please drag and drop a boot splashscreen into the terminal,
+    echo then press Enter.
+    read tvTex
+
+    echo
+    echo Please drag and drop an icon into the terminal,
+    echo then press Enter.
+    read iconTex
+
+    
+}
+
 function superNintendo(){
     clear
     getRom
@@ -251,6 +265,8 @@ function superNintendo(){
 
     # more cleanup
     rm -rf ./base/code/injected.elf
+
+    getIcon
 
 
 
