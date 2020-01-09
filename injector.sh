@@ -228,17 +228,28 @@ function getMetaSnes(){
 }
 
 function getIcon(){
-    # convert pngs to correct tgas for the splashscreen and icon
-    echo Please drag and drop a boot splashscreen into the terminal,
-    echo then press Enter.
-    read tvTex
-
-    echo
-    echo Please drag and drop an icon into the terminal,
-    echo then press Enter.
+    echo "Please drag and drop the iconTex.tga into the terminal window"
+    echo "please note that it must be 128x128 and have a bit depth of 32"
     read iconTex
+    clear
+    echo "Please drag and drop the bootTvTex.tga into the terminal window"
+    echo "please note that it must be 1280x720 and have a bit depth of 24"
+    read bootTvTex
+    clear
+    echo "Please drag and drop the bootDrcTex.tga into the terminal window"
+    echo "please note that it must be 854x480 and have a bit depth of 24"
+    read bootDrcTex
+    clear
 
-    
+    cd $DIR/base/meta
+    rm -rf ./iconTex.tga
+    rm -rf ./bootTvTex.tga
+    rm -rf ./bootDrcTex.tga
+
+    cp iconTex ./iconTex.tga
+    cp bootTvTex ./bootTvTex.tga
+    cp bootDrcTex ./bootDrcTex.tga
+
 }
 
 function superNintendo(){
@@ -251,17 +262,17 @@ function superNintendo(){
     clear
     echo Injecting the rom...
     cd $DIR
-    ./tools/wiiurpxtool -d ./base/code/*.rpx ./base/code/in.elf
+    wiiurpxtool -d ./base/code/*.rpx ./base/code/in.elf
 
     # inject the SNES rom into the new .elf
-    ./tools/retroinject base/code/in.elf "$romFile" base/code/injected.elf
+    retroinject base/code/in.elf "$romFile" base/code/injected.elf
 
     # delete the old, not injected .rpx and .elf
     rm -rf ./base/code/*.rpx
     rm -rf ./base/code/in.elf
 
     #convert back to .rpx
-    ./tools/wiiurpxtool -c ./base/code/injected.elf ./base/code/WUP-$gameId.rpx
+    wiiurpxtool -c ./base/code/injected.elf ./base/code/WUP-$gameId.rpx
 
     # more cleanup
     rm -rf ./base/code/injected.elf
