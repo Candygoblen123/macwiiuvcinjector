@@ -37,13 +37,17 @@ function getBase(){
     rm -rf ./base
     if [ -f "./tools/jnustool/config" ];
     then
-        echo JNUStool config found!
+        echo "JNUStool config found!"
     else
+        # ask for common key on first run, and save it to jnustool config and nuspacker config
         echo
-        echo But first we need the WiiU common key.
-        echo Please copy and paste the Wii U common key into the terminal window.
-        echo You will only need to do this once
+        echo "But first we need the WiiU common key for JNUSTool."
+        echo "Please copy and paste the Wii U common key into the terminal window."
+        echo "You will only need to do this once (mabye again if something goes wrong)"
+        echo "(We will also use this key for nuspacker's encryptKeyWith)"
         read commonkey
+
+        # create and write JNUStool config
         touch ./tools/jnustool/config
         chmod +x ./tools/jnustool/config
         echo http://ccs.cdn.wup.shop.nintendo.net/ccs/download >> ./tools/jnustool/config
@@ -51,19 +55,27 @@ function getBase(){
         echo updatetitles.csv >> ./tools/jnustool/config
         echo https://tagaya.wup.shop.nintendo.net/tagaya/versionlist/EUR/EU/latest_version >> ./tools/jnustool/config
         echo https://tagaya-wup.cdn.nintendo.net/tagaya/versionlist/EUR/EU/list/%d.versionlist >> ./tools/jnustool/config
+
+        # create and write nuspacker config
+        touch ./tools/nuspacker/encryptKeyWith
+        echo $commonkey > ./tools/nuspacker/encryptKeyWith
+        chmod +x ./tools/nuspacker/encryptKeyWith
     fi
 
+    # JNUSTool requires the working directory to contain the config
     cd ./tools/jnustool/
     java -jar JNUSTool.jar $titleId $titleKey -file /code/.*
     java -jar JNUSTool.jar $titleId $titleKey -file /content/.*
     java -jar JNUSTool.jar $titleId $titleKey -file /meta/.*
 
+    # Move base out to a easier to get to dir
     cd $DIR
     mv ./tools/jnustool/*/ ./base
 }
 
 function getMetaSnes(){
     # Collect meta information from the user and inject it into meta.xml and app.xml
+    # Includes collection of the gameId, because SNES games need that for some reason
     newId=$( LC_ALL=C tr -dc '0-9' </dev/urandom | head -c 8 )
     clear
     echo What is the name of your game?
@@ -74,6 +86,9 @@ function getMetaSnes(){
     echo $gameId
     cd $DIR
 
+    # Honertly the easiest way to do this, but it creates long script files
+
+    # meta.xml
     echo '<?xml version="1.0" encoding="utf-8"?>
 <menu type="complex" access="777">
   <version type="unsignedInt" length="4">32</version>
@@ -215,6 +230,7 @@ function getMetaSnes(){
   <add_on_unique_id31 type="hexBinary" length="4">00000000</add_on_unique_id31>
 </menu>' > ./base/meta/meta.xml
 
+    # app.xml
     echo '<?xml version="1.0" encoding="utf-8"?>
 <app type="complex" access="777">
   <version type="unsignedInt" length="4">14</version>
@@ -228,6 +244,9 @@ function getMetaSnes(){
 }
 
 function getIcon(){
+    # Get the icon and bootscreens from the user, and move them
+    # TODO: get conversion from png working
+    clear
     echo "Please drag and drop the iconTex.tga into the terminal window"
     echo "please note that it must be 128x128 and have a bit depth of 32"
     read iconTex
@@ -246,9 +265,43 @@ function getIcon(){
     rm -rf ./bootTvTex.tga
     rm -rf ./bootDrcTex.tga
 
-    cp iconTex ./iconTex.tga
-    cp bootTvTex ./bootTvTex.tga
-    cp bootDrcTex ./bootDrcTex.tga
+    cp $iconTex ./iconTex.tga
+    cp $bootTvTex ./bootTvTex.tga
+    cp $bootDrcTex ./bootDrcTex.tga
+
+}
+
+function packUp(){
+    # Use nuspacker to pack the game into an installable format
+
+    # Cleanup .DS_Store system files, cuz it makes nuspacker break
+    cd $DIR
+    find ./base/ -name ".DS_Store" -delete
+    clear
+    echo "Packing game into an installable format..."
+
+    # Check for nuspacker config again here (it should already exist, but it dosn't hurt to make sure)
+    if [ -f "./tools/nuspacker/encryptKeyWith" ];
+    then
+        echo "nuspacker config found!"
+    else
+        # ask for common key on first run, and save it to nuspacker config
+        echo
+        echo "For some reason, it didn't get written to eariler and nuspacker needs the WiiU common key."
+        echo "Please copy and paste the Wii U common key into the terminal window."
+        echo "You will only need to do this once. (Unless you delete the config)"
+        read commonkey
+
+        # create and write nuspacker config
+        touch ./tools/nuspacker/encryptKeyWith
+        echo $commonkey > ./tools/nuspacker/encryptKeyWith
+        chmod +x ./tools/nuspacker/encryptKeyWith
+    fi
+
+    # nuspacker requires the working directory to contain the config
+    cd ./tools/nuspacker/
+
+    java -jar ./nuspacker.jar -in "$DIR/base/" -out "$DIR/$name-00050000$newId"
 
 }
 
@@ -278,13 +331,7 @@ function superNintendo(){
     rm -rf ./base/code/injected.elf
 
     getIcon
-
-
-
-
-
-
-
+    packUp
 }
 
 clear
@@ -307,3 +354,9 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
+
+rm -rf $DIR/base/
+echo "Injected game is at $DIR/$name-00050000$newId with titleid 00050000$newId"
+echo
+echo
+exit
