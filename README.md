@@ -6,7 +6,7 @@ A script that will inject roms into wiiu vc games on Catalina
 
 ### Things on the TODO list:
 - [x] SNES injector
-- [ ] NDS injector
+- [ ] *NDS injector*
 - [ ] NES injector
 - [ ] N64 injector
 - [ ] GBA injector
