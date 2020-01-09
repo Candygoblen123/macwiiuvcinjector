@@ -30,7 +30,7 @@ brew install wiiuinjector
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-[Go to the Homebrew (macos) website at brew.sh to learn more](brew.sh)
+[Go to the Homebrew (macos) website at brew.sh to learn more](https://brew.sh)
 
 ###### Guide for install without brew coming soon
 
