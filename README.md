@@ -4,9 +4,11 @@ A script that will inject roms into wiiu vc games on Catalina
 ### Things that are working right now:
 - SNES injection
 
+### If something is not working, please open an issue
+
 ### Things on the TODO list:
 - [x] SNES injector
-- [ ] NDS injector
+- [ ] *NDS injector*
 - [ ] NES injector
 - [ ] N64 injector
 - [ ] GBA injector
@@ -30,7 +32,7 @@ brew install wiiuinjector
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-[Go to the Homebrew (macos) website at brew.sh to learn more](brew.sh)
+[Go to the Homebrew (macos) website at brew.sh to learn more](https://brew.sh)
 
 ###### Guide for install without brew coming soon
 
