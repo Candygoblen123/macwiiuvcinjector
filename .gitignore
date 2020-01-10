@@ -2,3 +2,5 @@
 .DS_Store
 tools/jnustool/config
 tools/nuspacker/encryptKeyWith
+tools/nuspacker/output
+tools/nuspacker/tmp

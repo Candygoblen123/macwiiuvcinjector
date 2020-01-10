@@ -265,6 +265,23 @@ function getIcon(){
     rm -rf ./bootTvTex.tga
     rm -rf ./bootDrcTex.tga
 
+    # magick $iconTex -resize 128x128\! -depth 32 +compress ./iconTex.tga
+    # truncate -s +8 ./iconTex.tga
+    # echo -n "TRUEVISION-XFILE." >> ./iconTex.tga
+    # truncate -s +1 ./iconTex.tga
+
+    # magick $bootTvTex -resize 1280x720\! -depth 24 +compress -alpha off ./bootTvTex.tga
+    # truncate -s +8 ./bootTvTex.tga
+    # echo -n "TRUEVISION-XFILE." >> ./bootTvTex.tga
+    # truncate -s +1 ./bootTvTex.tga
+
+    # magick $bootTvTex -resize 1280x720\! -depth 24 +compress -alpha off ./bootDrcTex.tga
+    # truncate -s +8 ./bootDrcTex.tga
+    # echo -n "TRUEVISION-XFILE." >> ./bootDrcTex.tga
+    # truncate -s +1 ./bootDrcTex.tga
+
+
+
     cp $iconTex ./iconTex.tga
     cp $bootTvTex ./bootTvTex.tga
     cp $bootDrcTex ./bootDrcTex.tga
@@ -301,7 +318,7 @@ function packUp(){
     # nuspacker requires the working directory to contain the config
     cd ./tools/nuspacker/
 
-    java -jar ./nuspacker.jar -in "$DIR/base/" -out "$DIR/$name-00050000$newId"
+    java -jar ./nuspacker.jar -in "$DIR/base/" -out ~/Desktop/"$name-00050000$newId"
 
 }
 
@@ -349,14 +366,14 @@ do
             break
             ;;
         "Exit")
-            break
+            exit
             ;;
         *) echo "invalid option $REPLY";;
     esac
 done
 
 rm -rf $DIR/base/
-echo "Injected game is at $DIR/$name-00050000$newId with titleid 00050000$newId"
 echo
 echo
+echo "Injected game is at ~/Desktop/$name-00050000$newId with titleid 00050000$newId"
 exit
