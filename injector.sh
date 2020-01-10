@@ -1,5 +1,5 @@
 #!/bin/bash
-DIR="$(brew --prefix)/Cellar/wiiuinjector/*/bin/"
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 function getRom() {
     echo Drag and drop the ROM file into the terminal window,
