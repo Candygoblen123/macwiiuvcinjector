@@ -1,5 +1,9 @@
 #!/bin/bash
+<<<<<<< HEAD
 DIR="$(brew --prefix)/Cellar/wiiuinjector/*/bin/"
+=======
+DIR=/usr/local/Cellar/wiiuinjector/*/bin/
+>>>>>>> 29e6a1c740e1b954089dbf2f0f53787ae98a7cec
 
 
 function getRom() {
