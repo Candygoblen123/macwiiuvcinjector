@@ -26,6 +26,6 @@ class GetFile {
                 return result!.path
             }
         }
-        return "file not found"
+        return ""
     }
 }
