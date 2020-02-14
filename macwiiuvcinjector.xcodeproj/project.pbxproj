@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4911500723F59FDD0031DEFA /* jnustool in Resources */ = {isa = PBXBuildFile; fileRef = 4911500623F59FDC0031DEFA /* jnustool */; };
 		491A4C3B23F2E09B00452039 /* snesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A4C3A23F2E09B00452039 /* snesView.swift */; };
 		49A0E40623F3301300ACB384 /* GetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0E40523F3301300ACB384 /* GetFile.swift */; };
+		49D8BA9E23F606690086404B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8BA9D23F606690086404B /* SettingsView.swift */; };
+		49E99F4B23F4DC38002AD9AF /* SnesInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */; };
+		49E99F4D23F4E718002AD9AF /* JnusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4C23F4E718002AD9AF /* JnusTool.swift */; };
 		49F4A67323F2332E00B8D0CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4A67223F2332E00B8D0CF /* AppDelegate.swift */; };
 		49F4A67523F2332E00B8D0CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4A67423F2332E00B8D0CF /* ContentView.swift */; };
 		49F4A67723F2333200B8D0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F4A67623F2333200B8D0CF /* Assets.xcassets */; };
@@ -17,8 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4911500623F59FDC0031DEFA /* jnustool */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jnustool; sourceTree = "<group>"; };
 		491A4C3A23F2E09B00452039 /* snesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = snesView.swift; sourceTree = "<group>"; };
 		49A0E40523F3301300ACB384 /* GetFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFile.swift; sourceTree = "<group>"; };
+		49D8BA9D23F606690086404B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnesInjector.swift; sourceTree = "<group>"; };
+		49E99F4C23F4E718002AD9AF /* JnusTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JnusTool.swift; sourceTree = "<group>"; };
 		49F4A66F23F2332E00B8D0CF /* macwiiuvcinjector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macwiiuvcinjector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F4A67223F2332E00B8D0CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F4A67423F2332E00B8D0CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,6 +51,7 @@
 		49F4A66623F2332E00B8D0CF = {
 			isa = PBXGroup;
 			children = (
+				4911500623F59FDC0031DEFA /* jnustool */,
 				49F4A67123F2332E00B8D0CF /* macwiiuvcinjector */,
 				49F4A67023F2332E00B8D0CF /* Products */,
 			);
@@ -60,8 +69,11 @@
 			isa = PBXGroup;
 			children = (
 				491A4C3A23F2E09B00452039 /* snesView.swift */,
+				49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */,
+				49E99F4C23F4E718002AD9AF /* JnusTool.swift */,
 				49F4A67223F2332E00B8D0CF /* AppDelegate.swift */,
 				49F4A67423F2332E00B8D0CF /* ContentView.swift */,
+				49D8BA9D23F606690086404B /* SettingsView.swift */,
 				49F4A67623F2333200B8D0CF /* Assets.xcassets */,
 				49A0E40523F3301300ACB384 /* GetFile.swift */,
 				49F4A67B23F2333200B8D0CF /* Main.storyboard */,
@@ -106,6 +118,9 @@
 		49F4A66723F2332E00B8D0CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					jnustool,
+				);
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Candygoblen123;
@@ -138,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4911500723F59FDD0031DEFA /* jnustool in Resources */,
 				49F4A67D23F2333200B8D0CF /* Main.storyboard in Resources */,
 				49F4A67A23F2333200B8D0CF /* Preview Assets.xcassets in Resources */,
 				49F4A67723F2333200B8D0CF /* Assets.xcassets in Resources */,
@@ -151,8 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D8BA9E23F606690086404B /* SettingsView.swift in Sources */,
 				49A0E40623F3301300ACB384 /* GetFile.swift in Sources */,
+				49E99F4D23F4E718002AD9AF /* JnusTool.swift in Sources */,
 				49F4A67523F2332E00B8D0CF /* ContentView.swift in Sources */,
+				49E99F4B23F4DC38002AD9AF /* SnesInjector.swift in Sources */,
 				49F4A67323F2332E00B8D0CF /* AppDelegate.swift in Sources */,
 				491A4C3B23F2E09B00452039 /* snesView.swift in Sources */,
 			);

@@ -28,4 +28,22 @@ class GetFile {
         }
         return ""
     }
+    
+    func saveFile() -> String {
+        let dialog = NSSavePanel()
+        
+        dialog.title = "Choose a save location:"
+        dialog.showsResizeIndicator = false
+        dialog.showsHiddenFiles = false
+        dialog.canCreateDirectories = true
+        
+        if (dialog.runModal() == NSApplication.ModalResponse.OK){
+            let result = dialog.url
+            
+            if (result != nil) {
+                return result!.path
+            }
+        }
+        return ""
+    }
 }

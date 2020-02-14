@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct snesView: View {
+    let inj = SnesInjector()
     let file = GetFile()
-    @State var filled = false
+    @State var notFilled = false
     @State var romFile :String = "Please choose a Rom File (.sfc format)"
     @State var iconTexFile :String = "Please choose an iconTex file"
     @State var tvTexFile :String = "Please choose a bootTvTex file"
@@ -54,23 +55,23 @@ struct snesView: View {
             }
             Button (action: {
                 if self.romFile == "Please choose a Rom File (.sfc format)" || self.romFile == "" {
-                    self.filled = true
+                    self.notFilled = true
                 }else if self.iconTexFile == "Please choose an iconTex file" || self.iconTexFile == "" {
-                    self.filled = true
+                    self.notFilled = true
                 }else if self.tvTexFile == "Please choose a bootTvTex file" || self.tvTexFile == "" {
-                    self.filled = true
+                    self.notFilled = true
                 }else if self.titleId == "" {
-                    self.filled = true
+                    self.notFilled = true
                 }else if self.titleKey == "" {
-                    self.filled = true
+                    self.notFilled = true
                 }
                 
-                if self.filled != true{
-                    print("good to go!")
+                if !self.notFilled {
+                    self.inj.inject(rom: self.romFile, iconTex: self.iconTexFile, tvTex: self.tvTexFile, titleId: self.titleId, titleKey: self.titleKey)
                 }
             }){
                 Text("Inject")
-            }.alert(isPresented: self.$filled) {
+            }.alert(isPresented: self.$notFilled) {
                 Alert(title: Text("Fields Not Filled"), message: Text("Please fill in every field."), dismissButton: Alert.Button.cancel())
             }
         }.padding()

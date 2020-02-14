@@ -28,6 +28,9 @@ struct ContentView: View {
                     //NavigationLink(destination: snesView()){
                        // Text("Nintendo Entertainment System")
                     //}
+                    NavigationLink(destination: SettingsView()){
+                        Text("Settings")
+                    }
                 }
                 
             }
