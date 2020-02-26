@@ -10,47 +10,20 @@ import Foundation
 
 struct JnusTool {
     let java = Process()
-    let file = FileManager()
+    let filem = FileManager()
     let jar = Bundle.main.resourcePath! + "/jnustool/JNUSTool.jar"
     let settings = SettingsManager()
 
     
-    func get(titleId: String, titleKey: String) {
-        
-        print(file.currentDirectoryPath)
-        
+    func get(titleId: String, titleKey: String) -> String {
+        // Lets us download decrypted game files from nintendo's servers with a titleid and titleKey
+        // the tool is ran with java, so we set up a java process here
         java.executableURL = URL(fileURLWithPath: "/usr/bin/java")
         java.arguments = ["-jar", self.jar, titleId, titleKey, "-file", ".*"]
         //java.arguments = ["--version"]
         
-        let outputPipe = Pipe()
-        let errorPipe = Pipe()
-        
-        java.standardOutput = outputPipe
-        java.standardError = errorPipe
-        
-        outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        errorPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading , queue: nil) {
-            notification in
-            let output = outputPipe.fileHandleForReading.availableData
-            let outputString = String(data: output, encoding: String.Encoding.utf8) ?? ""
-            print(outputString)
-        }
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: errorPipe.fileHandleForReading , queue: nil) {
-            notification in
-            let error = errorPipe.fileHandleForReading.availableData
-            let errorString = String(data: error, encoding: String.Encoding.utf8) ?? ""
-            print(errorString)
-        }
-        
-        outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        errorPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        
-        file.changeCurrentDirectoryPath("jnustool/")
+        // Jnustool requires the current directory to be the one with the config file
+        java.currentDirectoryPath = "jnustool/"
         
         do {
             try java.run()
@@ -58,19 +31,29 @@ struct JnusTool {
             print(error)
         }
         
+        java.waitUntilExit()
         
+        java.terminate()
         
-        /*
-        let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-        let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
+        //print("java done now")
         
-        let output = String(decoding: outputData, as: UTF8.self)
-        let error = String(decoding: errorData, as: UTF8.self)
+        var base :String = filem.currentDirectoryPath + "/jnustool/"
         
-        print(output)
-        print(error)
-        */
+        // Find the downdloaded game files, located in a foledr with the games name, a.k.a completely random as far as we care
         
+        do {
+            let contents = (try filem.contentsOfDirectory(atPath: "jnustool/"))
+            for content in contents {
+                if !(content == ".DS_Store" || content == "updatetitles.csv" || content == "config") {
+                    base += content
+                }
+            }
+        }catch {
+            print("could not get contents of jnustool directory")
+        }
+            
+        // returns the path of the base game
+        return base
         
     }
 }
