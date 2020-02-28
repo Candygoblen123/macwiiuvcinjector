@@ -2,7 +2,7 @@
 //  JnusTool.swift
 //  macwiiuvcinjector
 //
-//  Created by Andrew Glaze on 2/12/20.
+//  Created by Candygoblen123 on 2/12/20.
 //  Copyright © 2020 Candygoblen123. All rights reserved.
 //
 

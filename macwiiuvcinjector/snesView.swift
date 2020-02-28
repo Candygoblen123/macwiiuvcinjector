@@ -2,7 +2,7 @@
 //  snesView.swift
 //  macwiiuvcinjector
 //
-//  Created by Andrew Glaze on 2/10/20.
+//  Created by Candygoblen123 on 2/10/20.
 //  Copyright © 2020 Candygoblen123. All rights reserved.
 //
 
@@ -12,6 +12,7 @@ struct snesView: View {
     let inj = SnesInjector()
     let file = GetFile()
     @State var notFilled = false
+    @State var name :String = ""
     @State var romFile :String = "Please choose a Rom File (.sfc format)"
     @State var iconTexFile :String = "Please choose an iconTex file"
     @State var tvTexFile :String = "Please choose a bootTvTex file"
@@ -46,6 +47,10 @@ struct snesView: View {
                 }
             }
             HStack {
+                Text("Name:")
+                TextField("Please enter a name for your injected game", text: $name)
+            }
+            HStack {
                 Text("Title Id:")
                 TextField("Please enter a Title Id", text: $titleId)
             }
@@ -64,10 +69,12 @@ struct snesView: View {
                     self.notFilled = true
                 }else if self.titleKey == "" {
                     self.notFilled = true
+                }else if self.name == "" {
+                    self.notFilled = true
                 }
                 
                 if !self.notFilled {
-                    self.inj.inject(rom: self.romFile, iconTex: self.iconTexFile, tvTex: self.tvTexFile, titleId: self.titleId, titleKey: self.titleKey)
+                    self.inj.inject(rom: self.romFile, iconTex: self.iconTexFile, bootTvTex: self.tvTexFile, titleId: self.titleId, titleKey: self.titleKey, name: self.name)
                 }
             }){
                 Text("Inject")

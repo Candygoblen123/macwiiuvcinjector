@@ -2,7 +2,7 @@
 //  SnesInjector.swift
 //  macwiiuvcinjector
 //
-//  Created by Andrew Glaze on 2/12/20.
+//  Created by Candygoblen123 on 2/12/20.
 //  Copyright © 2020 Candygoblen123. All rights reserved.
 //
 
@@ -13,9 +13,9 @@ struct SnesInjector {
     let jnustool = JnusTool()
     let filem = FileManager()
     
-    func inject(rom: String, iconTex: String, tvTex: String, titleId: String, titleKey: String){
+    func inject(rom: String, iconTex: String, bootTvTex: String, titleId: String, titleKey: String, name: String){
         //let user define the output directory for final installable files
-        let outputDir = file.saveFile() + "/"
+        let outputDir = file.saveFile(name: name) + "/"
         
         let base = jnustool.get(titleId: titleId, titleKey: titleKey)
         
@@ -32,8 +32,6 @@ struct SnesInjector {
         }catch {
             print("could not get contents of jnustool directory")
         }
-        
-        print(rpxFile)
         
         // Decompress the .rpx file into an .elf file, so that we can edit the contents
         let wiiurpxtool = Process()
@@ -103,12 +101,13 @@ struct SnesInjector {
             print("could not delete .elf files")
         }
         
-        let newTitleId = ("00050000" + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10))).data(using: .utf8)!
+        // Replace xml files with our own
+        XmlHandler().appXml(base: base)
+        XmlHandler().metaXml(base: base, name: name)
         
-        var appXml = filem.contents(atPath: "\(base)/code/app.xml")
-        appXml?.replaceSubrange(242...257, with: newTitleId)
-        
-        
+        // replace the icon and bootscreens with the ones provided by the user
+        ImageHandler().icon(iconTex: iconTex, base: base)
+        ImageHandler().bootTv(bootTvTex: bootTvTex, base: base)
         
     }
 }

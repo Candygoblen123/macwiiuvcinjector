@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7B05BEEB-C95A-4B0D-984E-83BFD15627B4"
+            uuid = "060EEFB2-2F9B-4CF6-926B-F32DC3C6EDB3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "macwiiuvcinjector/SnesInjector.swift"
+            filePath = "macwiiuvcinjector/ImageHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "inject(rom:iconTex:tvTex:titleId:titleKey:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "icon(iconTex:base:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

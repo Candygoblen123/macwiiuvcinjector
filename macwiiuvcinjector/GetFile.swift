@@ -2,7 +2,7 @@
 //  GetFile.swift
 //  macwiiuvcinjector
 //
-//  Created by Andrew Glaze on 2/11/20.
+//  Created by Candygoblen123 on 2/11/20.
 //  Copyright © 2020 Candygoblen123. All rights reserved.
 //
 
@@ -29,13 +29,14 @@ class GetFile {
         return ""
     }
     
-    func saveFile() -> String {
+    func saveFile(name: String) -> String {
         let dialog = NSSavePanel()
         
         dialog.title = "Choose a save location:"
         dialog.showsResizeIndicator = false
         dialog.showsHiddenFiles = false
         dialog.canCreateDirectories = true
+        dialog.nameFieldStringValue = name
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK){
             let result = dialog.url
