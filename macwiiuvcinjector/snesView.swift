@@ -18,12 +18,15 @@ struct snesView: View {
     @State var tvTexFile :String = "Please choose a bootTvTex file"
     @State var titleId :String = ""
     @State var titleKey :String = ""
+    @State var noCommonKey = false
+    
+    @Binding var injectorProgress: CGFloat
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("Please fill out every field")
             HStack {
-                Text("Rom: \(self.romFile)")
+                Text("Rom: \(self.romFile)").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 Button(action: {
                     self.romFile = self.file.browseFile()
                 }){
@@ -31,7 +34,7 @@ struct snesView: View {
                 }
             }
             HStack {
-                Text("Icon: \(self.iconTexFile)")
+                Text("Icon: \(self.iconTexFile)").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 Button(action: {
                     self.iconTexFile = self.file.browseFile()
                 }){
@@ -39,7 +42,7 @@ struct snesView: View {
                 }
             }
             HStack {
-                Text("Bootscreens: \(self.tvTexFile)")
+                Text("Bootscreens: \(self.tvTexFile)").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 Button(action: {
                     self.tvTexFile = self.file.browseFile()
                 }){
@@ -73,20 +76,42 @@ struct snesView: View {
                     self.notFilled = true
                 }
                 
-                if !self.notFilled {
+                let commonKeyData = filem.contents(atPath: "\(AppDelegate().applicationSupportDir)/commonKey")
+                let commonKeyString: String = String(data: commonKeyData ?? "".data(using: .utf8)!, encoding: String.Encoding.utf8) ?? ""
+                print("common Key :" + commonKeyString)
+                
+                if commonKeyString == "" || commonKeyString == "Wii U Common Key"
+                {
+                    self.notFilled = true
+                }
+                
+                if !self.notFilled && !self.noCommonKey {
                     self.inj.inject(rom: self.romFile, iconTex: self.iconTexFile, bootTvTex: self.tvTexFile, titleId: self.titleId, titleKey: self.titleKey, name: self.name)
                 }
             }){
                 Text("Inject")
             }.alert(isPresented: self.$notFilled) {
-                Alert(title: Text("Fields Not Filled"), message: Text("Please fill in every field."), dismissButton: Alert.Button.cancel())
+                Alert(title: Text("Fields Not Filled"), message: Text("Please fill in every field. Be sure you also provided the Common Key in the settings page."), dismissButton: .default(Text("Got it")))
             }
-        }.padding()
+            
+            ZStack(alignment: .leading){
+                
+                Rectangle()
+                  .foregroundColor(Color.gray)
+                  .opacity(0.3)
+                  .frame(width: 345.0, height: 8.0)
+               Rectangle()
+                  .foregroundColor(Color.blue)
+                  .frame(width: 345.0 * (injectorProgress / 100.0), height: 8.0)
+            }
+            .cornerRadius(4.0)
+                
+            }.padding()
     }
 }
 
 struct snesView_Previews: PreviewProvider {
     static var previews: some View {
-        snesView()
+        snesView(injectorProgress: .constant(0.0))
     }
 }

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/andrew/Documents/macwiiuvcinjector/ImageMagick-7.0.9">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

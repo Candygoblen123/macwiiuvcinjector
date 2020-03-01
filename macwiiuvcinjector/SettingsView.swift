@@ -33,24 +33,29 @@ class SettingsManager: ObservableObject {
     @Published var commonKey: String = "Wii U Common Key"
     let file = FileManager()
     
+    
     func saveCommonKey(){
         if file.fileExists(atPath: "commonKey") || file.fileExists(atPath: "jnustool/"){
             do {
-                try file.removeItem(atPath: "commonKey")
-                try file.removeItem(atPath: "jnustool/")
+                try file.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/commonKey")
+                try file.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/")
+                try file.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/")
             }catch {
-                print("Unable to delete commonKeyFiles")
+                print("Unable to delete common Key Files")
             }
         }
         
-        let commonKeyData: Data? = commonKey.data(using: .utf8)
-        file.createFile(atPath: "commonKey", contents: commonKeyData)
-        
         do {
-            try file.createDirectory(atPath: "jnustool/", withIntermediateDirectories: true)
+            try file.createDirectory(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/", withIntermediateDirectories: true)
+            try file.createDirectory(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/", withIntermediateDirectories: true)
         } catch {
-            print("Could not create jnustool directory.")
+            print("Could not create jnustool and nuspacker directory.")
         }
+        
+        let commonKeyData: Data? = commonKey.data(using: .utf8)
+        file.createFile(atPath: "\(AppDelegate().applicationSupportDir)/commonKey", contents: commonKeyData)
+        file.createFile(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/encryptKeyWith", contents: commonKeyData)
+        
         
         let config: Data? = """
         http://ccs.cdn.wup.shop.nintendo.net/ccs/download
@@ -60,10 +65,10 @@ class SettingsManager: ObservableObject {
         https://tagaya-wup.cdn.nintendo.net/tagaya/versionlist/EUR/EU/list/%d.versionlist
         """.data(using: .utf8)
             
-        file.createFile(atPath: "jnustool/config", contents: config)
+        file.createFile(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/config", contents: config)
         
         do {
-            try file.copyItem(atPath: Bundle.main.resourcePath! + "/jnustool/updatetitles.csv", toPath: "jnustool/updatetitles.csv")
+            try file.copyItem(atPath: Bundle.main.resourcePath! + "/jnustool/updatetitles.csv", toPath: "\(AppDelegate().applicationSupportDir)/jnustool/updatetitles.csv")
         } catch {
             print("updatetitles.csv not copied to jnustool directory")
         }
@@ -71,11 +76,14 @@ class SettingsManager: ObservableObject {
             
     }
     
+    typealias Finished = () -> ()
+    
     func loadCommonKey() {
-        guard let commonKeyData = file.contents(atPath: "commonKey") else { return  }
+        guard let commonKeyData = file.contents(atPath: "\(AppDelegate().applicationSupportDir)/commonKey") else { return }
         let commonKeyString: String = String(data: commonKeyData, encoding: String.Encoding.utf8) ?? ""
         self.commonKey = commonKeyString
     }
+    
 }
 
 

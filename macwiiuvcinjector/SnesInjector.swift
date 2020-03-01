@@ -109,5 +109,14 @@ struct SnesInjector {
         ImageHandler().icon(iconTex: iconTex, base: base)
         ImageHandler().bootTv(bootTvTex: bootTvTex, base: base)
         
+        //package and encrypt the game for installation 
+        NusPacker().pack(base: base, outputDir: outputDir)
+        
+        // delete the base folder
+        do {
+            try filem.removeItem(atPath: base)
+        } catch {
+            print("Could not delete the base folder.")
+        }
     }
 }

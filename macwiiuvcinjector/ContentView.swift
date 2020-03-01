@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @State var injectorProgress: CGFloat = 0.0
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
@@ -22,7 +23,7 @@ struct ContentView: View {
             }
             NavigationView {
                 List {
-                    NavigationLink(destination: snesView()) {
+                    NavigationLink(destination: snesView(injectorProgress: $injectorProgress)) {
                         Text("Super Nintendo Entertainment System")
                     }
                     //NavigationLink(destination: snesView()){
@@ -34,7 +35,7 @@ struct ContentView: View {
                 }
                 
             }
-        }.padding()
+            }.padding()
     }
 }
 

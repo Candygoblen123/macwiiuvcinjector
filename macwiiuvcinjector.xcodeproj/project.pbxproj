@@ -12,7 +12,9 @@
 		491EA6542408682B00A0D528 /* ImageMagick-7.0.9 in Resources */ = {isa = PBXBuildFile; fileRef = 491EA6532408682B00A0D528 /* ImageMagick-7.0.9 */; };
 		492D781D24074F910070E0FB /* XmlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781C24074F910070E0FB /* XmlHandler.swift */; };
 		492D781F240752E40070E0FB /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781E240752E40070E0FB /* XML.swift */; };
+		49432E3124094490002778E2 /* nuspacker in Resources */ = {isa = PBXBuildFile; fileRef = 49432E3024094490002778E2 /* nuspacker */; };
 		4995687923FDA70000B08CE5 /* retroinject in Resources */ = {isa = PBXBuildFile; fileRef = 4995687823FDA6FF00B08CE5 /* retroinject */; };
+		4995E64B240942C3009F0DD9 /* NusPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4995E64A240942C3009F0DD9 /* NusPacker.swift */; };
 		49A0E40623F3301300ACB384 /* GetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0E40523F3301300ACB384 /* GetFile.swift */; };
 		49D8BA9E23F606690086404B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8BA9D23F606690086404B /* SettingsView.swift */; };
 		49DDEC49240866DB00738700 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDEC48240866DB00738700 /* ImageHandler.swift */; };
@@ -32,7 +34,9 @@
 		491EA6532408682B00A0D528 /* ImageMagick-7.0.9 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ImageMagick-7.0.9"; sourceTree = "<group>"; };
 		492D781C24074F910070E0FB /* XmlHandler.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = XmlHandler.swift; sourceTree = "<group>"; tabWidth = 4; };
 		492D781E240752E40070E0FB /* XML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XML.swift; sourceTree = "<group>"; };
+		49432E3024094490002778E2 /* nuspacker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = nuspacker; sourceTree = "<group>"; };
 		4995687823FDA6FF00B08CE5 /* retroinject */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = retroinject; sourceTree = "<group>"; };
+		4995E64A240942C3009F0DD9 /* NusPacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NusPacker.swift; sourceTree = "<group>"; };
 		49A0E40523F3301300ACB384 /* GetFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFile.swift; sourceTree = "<group>"; };
 		49D8BA9D23F606690086404B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		49DDEC48240866DB00738700 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageHandler.swift; path = macwiiuvcinjector/ImageHandler.swift; sourceTree = SOURCE_ROOT; };
@@ -63,6 +67,7 @@
 		49F4A66623F2332E00B8D0CF = {
 			isa = PBXGroup;
 			children = (
+				49432E3024094490002778E2 /* nuspacker */,
 				491EA6532408682B00A0D528 /* ImageMagick-7.0.9 */,
 				4995687823FDA6FF00B08CE5 /* retroinject */,
 				49DFD0F923FAC6EB00021009 /* wiiurpxtool */,
@@ -87,6 +92,7 @@
 				492D781E240752E40070E0FB /* XML.swift */,
 				491A4C3A23F2E09B00452039 /* snesView.swift */,
 				49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */,
+				4995E64A240942C3009F0DD9 /* NusPacker.swift */,
 				49E99F4C23F4E718002AD9AF /* JnusTool.swift */,
 				49F4A67223F2332E00B8D0CF /* AppDelegate.swift */,
 				49F4A67423F2332E00B8D0CF /* ContentView.swift */,
@@ -136,9 +142,6 @@
 		49F4A66723F2332E00B8D0CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				KnownAssetTags = (
-					jnustool,
-				);
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Candygoblen123;
@@ -176,6 +179,7 @@
 				4911500723F59FDD0031DEFA /* jnustool in Resources */,
 				49F4A67D23F2333200B8D0CF /* Main.storyboard in Resources */,
 				49F4A67A23F2333200B8D0CF /* Preview Assets.xcassets in Resources */,
+				49432E3124094490002778E2 /* nuspacker in Resources */,
 				491EA6542408682B00A0D528 /* ImageMagick-7.0.9 in Resources */,
 				49F4A67723F2333200B8D0CF /* Assets.xcassets in Resources */,
 			);
@@ -192,6 +196,7 @@
 				49D8BA9E23F606690086404B /* SettingsView.swift in Sources */,
 				49A0E40623F3301300ACB384 /* GetFile.swift in Sources */,
 				492D781D24074F910070E0FB /* XmlHandler.swift in Sources */,
+				4995E64B240942C3009F0DD9 /* NusPacker.swift in Sources */,
 				49E99F4D23F4E718002AD9AF /* JnusTool.swift in Sources */,
 				49F4A67523F2332E00B8D0CF /* ContentView.swift in Sources */,
 				49E99F4B23F4DC38002AD9AF /* SnesInjector.swift in Sources */,
@@ -333,9 +338,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = macwiiuvcinjector/macwiiuvcinjector.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"macwiiuvcinjector/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macwiiuvcinjector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -345,6 +352,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = Candygoblen123.macwiiuvcinjector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -354,9 +362,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = macwiiuvcinjector/macwiiuvcinjector.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"macwiiuvcinjector/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macwiiuvcinjector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -366,6 +376,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = Candygoblen123.macwiiuvcinjector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
