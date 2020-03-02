@@ -5,3 +5,6 @@ tools/nuspacker/encryptKeyWith
 tools/nuspacker/output
 tools/nuspacker/tmp
 tools/jnustool/config/
+
+xcuserdata/
+*.xcworkspace
