@@ -30,10 +30,74 @@
             filePath = "macwiiuvcinjector/SnesInjector.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "inject(rom:iconTex:bootTvTex:titleId:titleKey:name:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7626A5DC-F48C-4257-BA25-D25EC1E33D6B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "macwiiuvcinjector/SnesInjector.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "inject(rom:iconTex:bootTvTex:titleId:titleKey:name:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7626A5DC-F48C-4257-BA25-D25EC1E33D6B - 4b285e508f2d1dd1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "macwiiuvcinjector.SnesInjector.inject(rom: Swift.String, iconTex: Swift.String, bootTvTex: Swift.String, titleId: Swift.String, titleKey: Swift.String, name: Swift.String) throws -&gt; ()"
+                  moduleName = "macwiiuvcinjector"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrew/Documents/macwiiuvcinjector/macwiiuvcinjector/SnesInjector.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "10770">
+               </Location>
+               <Location
+                  uuid = "7626A5DC-F48C-4257-BA25-D25EC1E33D6B - 4b285e508f2d1dd1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "macwiiuvcinjector.SnesInjector.inject(rom: Swift.String, iconTex: Swift.String, bootTvTex: Swift.String, titleId: Swift.String, titleKey: Swift.String, name: Swift.String) throws -&gt; ()"
+                  moduleName = "macwiiuvcinjector"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrew/Documents/macwiiuvcinjector/macwiiuvcinjector/SnesInjector.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "13330">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "306E2E36-BF13-4804-995F-514F0F25B37F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "macwiiuvcinjector/SnesInjector.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "inject(rom:iconTex:bootTvTex:titleId:titleKey:name:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

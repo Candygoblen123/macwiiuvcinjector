@@ -9,10 +9,11 @@
 import Foundation
 
 struct NusPacker {
-    let java = Process()
+    
     let filem = FileManager()
     let jar = Bundle.main.resourcePath! + "/nuspacker/NUSPacker.jar"
     func pack(base: String, outputDir: String){
+        let java = Process()
         do {
             try filem.createDirectory(atPath: outputDir, withIntermediateDirectories: true)
         }catch {

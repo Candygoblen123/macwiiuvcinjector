@@ -9,12 +9,12 @@
 import Foundation
 
 struct JnusTool {
-    let java = Process()
+    
     let filem = FileManager()
     let jar = Bundle.main.resourcePath! + "/jnustool/JNUSTool.jar"
     
     func get(titleId: String, titleKey: String) -> String {
-        //print(AppDelegate().yourString)
+        let java = Process()
         // Lets us download decrypted game files from nintendo's servers with a titleid and titleKey
         // the tool is ran with java, so we set up a java process here
         java.executableURL = URL(fileURLWithPath: "/usr/bin/java")

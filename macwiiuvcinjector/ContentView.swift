@@ -24,18 +24,21 @@ struct ContentView: View {
             NavigationView {
                 List {
                     NavigationLink(destination: snesView(injectorProgress: $injectorProgress)) {
-                        Text("Super Nintendo Entertainment System")
+                        Text("Super Nintendo Entertainment System").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
                     //NavigationLink(destination: snesView()){
                        // Text("Nintendo Entertainment System")
                     //}
                     NavigationLink(destination: SettingsView()){
-                        Text("Settings")
+                        Text("Settings").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
                 }
                 
-            }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
             }.padding()
+    }
+    func updateProgres(progress: CGFloat) {
+        self.injectorProgress = progress
     }
 }
 

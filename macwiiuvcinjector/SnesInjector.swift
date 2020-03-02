@@ -13,11 +13,22 @@ struct SnesInjector {
     let jnustool = JnusTool()
     let filem = FileManager()
     
-    func inject(rom: String, iconTex: String, bootTvTex: String, titleId: String, titleKey: String, name: String){
+    func inject(rom: String, iconTex: String, bootTvTex: String, titleId: String, titleKey: String, name: String) throws {
+        let view = ContentView()
         //let user define the output directory for final installable files
         let outputDir = file.saveFile(name: name) + "/"
         
+        if outputDir == "/" {
+            throw SnesInjectorError.noOutDirectory
+        }
+        
         let base = jnustool.get(titleId: titleId, titleKey: titleKey)
+        
+        if base == "\(AppDelegate().applicationSupportDir)/jnustool/" {
+            throw SnesInjectorError.noJnustoolDownload
+        }
+        
+        view.updateProgres(progress: 10.0)
         
         // attempt to find the .rpx file in the code folder
         var rpxFile :String = ""
@@ -105,12 +116,24 @@ struct SnesInjector {
         XmlHandler().appXml(base: base)
         XmlHandler().metaXml(base: base, name: name)
         
+        if !(filem.fileExists(atPath: "\(base)/code/app.xml") || filem.fileExists(atPath: "\(base)/meta/meta.xml")) {
+            throw SnesInjectorError.noXml
+        }
+        
         // replace the icon and bootscreens with the ones provided by the user
         ImageHandler().icon(iconTex: iconTex, base: base)
         ImageHandler().bootTv(bootTvTex: bootTvTex, base: base)
         
+        if !(filem.fileExists(atPath: "\(base)/meta/icon.xml") || filem.fileExists(atPath: "\(base)/meta/bootTvTex.tga") || filem.fileExists(atPath: "\(base)/meta/bootDrcTex.tga")) {
+            throw SnesInjectorError.noIcon
+        }
+        
         //package and encrypt the game for installation 
         NusPacker().pack(base: base, outputDir: outputDir)
+        
+        if try! filem.contentsOfDirectory(atPath: base) == [] {
+            throw SnesInjectorError.noOutput
+        }
         
         // delete the base folder
         do {
@@ -119,4 +142,12 @@ struct SnesInjector {
             print("Could not delete the base folder.")
         }
     }
+}
+
+enum SnesInjectorError: Error {
+    case noOutDirectory
+    case noJnustoolDownload
+    case noXml
+    case noIcon
+    case noOutput
 }
