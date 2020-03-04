@@ -31,32 +31,34 @@ struct SettingsView: View {
 
 class SettingsManager: ObservableObject {
     @Published var commonKey: String = "Wii U Common Key"
-    let file = FileManager()
-    
+    let filem = FileManager()
     
     func saveCommonKey(){
-        if file.fileExists(atPath: "commonKey") || file.fileExists(atPath: "jnustool/"){
+        // Saves the common key to all places it is required, as well as configure appsupport dir and working dirs for
+        if filem.fileExists(atPath: "commonKey") || filem.fileExists(atPath: "jnustool/") || filem.fileExists(atPath: "nuspacker/"){
             do {
-                try file.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/commonKey")
-                try file.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/")
-                try file.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/")
+                try filem.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/commonKey")
+                try filem.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/")
+                try filem.removeItem(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/")
             }catch {
                 print("Unable to delete common Key Files")
             }
         }
         
+        // create working dirs
         do {
-            try file.createDirectory(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/", withIntermediateDirectories: true)
-            try file.createDirectory(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/", withIntermediateDirectories: true)
+            try filem.createDirectory(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/", withIntermediateDirectories: true)
+            try filem.createDirectory(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/", withIntermediateDirectories: true)
         } catch {
             print("Could not create jnustool and nuspacker directory.")
         }
         
+        //write the common key to a file and store it & do the same for nuspacker's encryptKeyWith
         let commonKeyData: Data? = commonKey.data(using: .utf8)
-        file.createFile(atPath: "\(AppDelegate().applicationSupportDir)/commonKey", contents: commonKeyData)
-        file.createFile(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/encryptKeyWith", contents: commonKeyData)
+        filem.createFile(atPath: "\(AppDelegate().applicationSupportDir)/commonKey", contents: commonKeyData)
+        filem.createFile(atPath: "\(AppDelegate().applicationSupportDir)/nuspacker/encryptKeyWith", contents: commonKeyData)
         
-        
+        // write the jnustool config to a file with the common key in it and save it to a jnustool working dir
         let config: Data? = """
         http://ccs.cdn.wup.shop.nintendo.net/ccs/download
         \(commonKey)
@@ -64,11 +66,11 @@ class SettingsManager: ObservableObject {
         https://tagaya.wup.shop.nintendo.net/tagaya/versionlist/EUR/EU/latest_version
         https://tagaya-wup.cdn.nintendo.net/tagaya/versionlist/EUR/EU/list/%d.versionlist
         """.data(using: .utf8)
-            
-        file.createFile(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/config", contents: config)
+        filem.createFile(atPath: "\(AppDelegate().applicationSupportDir)/jnustool/config", contents: config)
         
+        // copy updatetitles.csv to the jnustool workingdir
         do {
-            try file.copyItem(atPath: Bundle.main.resourcePath! + "/jnustool/updatetitles.csv", toPath: "\(AppDelegate().applicationSupportDir)/jnustool/updatetitles.csv")
+            try filem.copyItem(atPath: Bundle.main.resourcePath! + "/jnustool/updatetitles.csv", toPath: "\(AppDelegate().applicationSupportDir)/jnustool/updatetitles.csv")
         } catch {
             print("updatetitles.csv not copied to jnustool directory")
         }
@@ -76,10 +78,10 @@ class SettingsManager: ObservableObject {
             
     }
     
-    typealias Finished = () -> ()
     
     func loadCommonKey() {
-        guard let commonKeyData = file.contents(atPath: "\(AppDelegate().applicationSupportDir)/commonKey") else { return }
+        // load the common key as a string and return it so that it can be used as a var
+        guard let commonKeyData = filem.contents(atPath: "\(AppDelegate().applicationSupportDir)/commonKey") else { return }
         let commonKeyString: String = String(data: commonKeyData, encoding: String.Encoding.utf8) ?? ""
         self.commonKey = commonKeyString
     }

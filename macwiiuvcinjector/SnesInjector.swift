@@ -13,8 +13,7 @@ struct SnesInjector {
     let jnustool = JnusTool()
     let filem = FileManager()
     
-    func inject(rom: String, iconTex: String, bootTvTex: String, titleId: String, titleKey: String, name: String) throws {
-        let view = ContentView()
+    func inject(rom: String, iconTex: String, bootTvTex: String, titleId: String, titleKey: String, name: String) throws -> Bool {
         //let user define the output directory for final installable files
         let outputDir = file.saveFile(name: name) + "/"
         
@@ -28,7 +27,7 @@ struct SnesInjector {
             throw SnesInjectorError.noJnustoolDownload
         }
         
-        view.updateProgres(progress: 10.0)
+        
         
         // attempt to find the .rpx file in the code folder
         var rpxFile :String = ""
@@ -141,6 +140,8 @@ struct SnesInjector {
         } catch {
             print("Could not delete the base folder.")
         }
+        
+        return true
     }
 }
 

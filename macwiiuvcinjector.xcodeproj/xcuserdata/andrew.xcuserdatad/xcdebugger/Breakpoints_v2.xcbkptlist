@@ -30,8 +30,8 @@
             filePath = "macwiiuvcinjector/SnesInjector.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "inject(rom:iconTex:bootTvTex:titleId:titleKey:name:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "macwiiuvcinjector/SnesInjector.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "inject(rom:iconTex:bootTvTex:titleId:titleKey:name:)"
             landmarkType = "7">
             <Locations>
@@ -87,15 +87,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "306E2E36-BF13-4804-995F-514F0F25B37F"
-            shouldBeEnabled = "No"
+            uuid = "9A099669-51B3-4EEE-BDA1-1BAFD445822D"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "macwiiuvcinjector/SnesInjector.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "inject(rom:iconTex:bootTvTex:titleId:titleKey:name:)"
             landmarkType = "7">
          </BreakpointContent>

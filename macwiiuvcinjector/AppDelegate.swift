@@ -13,9 +13,12 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
+    // a variable that gives the appiclation support directory for the user
     @State var applicationSupportDir = String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/"
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // delete a downloaded base, if it exists
+        try? filem.removeItem(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase")
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
@@ -33,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        
     }
     
     

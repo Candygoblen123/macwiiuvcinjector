@@ -8,10 +8,10 @@
 
 import Foundation
 let filem = FileManager()
+// create a new, randomized titleid
 let newTitleId = "00050000" + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10))
 
 class XmlHandler {
-  // create a new, randomized titleid
 
     func appXml(base :String) {
         // phrase app.xml, set a new titleid, then overwrite with our new app.xml
@@ -19,7 +19,7 @@ class XmlHandler {
         
         appXml[0]["title_id"]?.text = newTitleId
         
-        // pretty formatting
+        // pretty formatting (may not be required)
         var str :String = ""
         if let xml = try? XMLDocument.init(xmlString: appXml.description) {
            let data = xml.xmlData(options:.nodePrettyPrint)
@@ -65,13 +65,14 @@ class XmlHandler {
         metaXml[0]["shortname_ru"]?.text = name
         metaXml[0]["shortname_zht"]?.text = name
         
-        // pretty formatting
+        // pretty formatting (may not be required)
         var str :String = ""
         if let xml = try? XMLDocument.init(xmlString: metaXml.description) {
            let data = xml.xmlData(options:.nodePrettyPrint)
            str = String(data: data, encoding: .utf8)!
         }
         
+        //replace old xml with our new one
         do {
             try filem.removeItem(atPath: "\(base)/meta/meta.xml")
         }catch {
