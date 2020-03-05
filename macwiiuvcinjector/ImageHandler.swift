@@ -19,7 +19,7 @@ struct ImageHandler {
         imageMagic.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/ImageMagick-7.0.9/bin/magick")
         
         //arguements needed to convert to a wii u compatible icon
-        imageMagic.arguments = [iconTex, "-resize",#"128x128\!"#, "-depth", "32", "+compress", "-flatten", "\(base)/meta/iconTex.tga"]
+        imageMagic.arguments = [iconTex, "-resize", #"128x128\!"#, "-depth", "32", "+compress", "-orient", "BottomLeft", "-flip", "\(base)/meta/iconTex.tga"]
         
         //imagemagick requires you to spesify certain paths in the enviroment
         imageMagic.environment = ["MAGICK_HOME" : Bundle.main.resourcePath! + "/ImageMagick-7.0.9", "DYLD_LIBRARY_PATH" : Bundle.main.resourcePath! + "/ImageMagick-7.0.9/lib/"]
@@ -43,7 +43,7 @@ struct ImageHandler {
         let imageMagic = Process()
         imageMagic.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/ImageMagick-7.0.9/bin/magick")
         
-        imageMagic.arguments = [bootTvTex, "-resize", #"1280x720\!"# , "-depth", "24", "+compress", "-alpha", "off", "\(base)/meta/bootTvTex.tga"]
+        imageMagic.arguments = [bootTvTex, "-resize", #"1280x720\!"# , "-depth", "24", "+compress", "-alpha", "off", "-orient", "BottomLeft", "-flip", "\(base)/meta/bootTvTex.tga"]
         
         imageMagic.environment = ["MAGICK_HOME" : Bundle.main.resourcePath! + "/ImageMagick-7.0.9", "DYLD_LIBRARY_PATH" : Bundle.main.resourcePath! + "/ImageMagick-7.0.9/lib/"]
         
@@ -61,7 +61,7 @@ struct ImageHandler {
         let imageMagic2 = Process()
         imageMagic2.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/ImageMagick-7.0.9/bin/magick")
         
-        imageMagic2.arguments = [bootTvTex, "-resize", #"854x480\!"#, "-depth", "24", "+compress", "-alpha", "off", "\(base)/meta/bootDrcTex.tga"]
+        imageMagic2.arguments = [bootTvTex, "-resize", #"854x480\!"#, "-depth", "24", "+compress", "-alpha", "off", "-orient", "BottomLeft", "-flip", "\(base)/meta/bootDrcTex.tga"]
         
         imageMagic2.environment = ["MAGICK_HOME" : Bundle.main.resourcePath! + "/ImageMagick-7.0.9", "DYLD_LIBRARY_PATH" : Bundle.main.resourcePath! + "/ImageMagick-7.0.9/lib/"]
         
