@@ -98,19 +98,19 @@ struct snesView: View {
                                 self.finishedInject = true
                                 self.injectorStatus = "Done!"
                             }
-                        }catch SnesInjectorError.noOutDirectory {
+                        }catch InjectorError.noOutDirectory {
                             self.errorMessage = "You need to provide a directory that we can save the final injected game to."
                             self.showError = true
-                        }catch SnesInjectorError.noJnustoolDownload {
+                        }catch InjectorError.noJnustoolDownload {
                             self.errorMessage = "We couldn't download the base game files. Your title id/key may not be correct, or you may not be connected to the internet."
                             self.showError = true
-                        }catch SnesInjectorError.noXml {
+                        }catch InjectorError.noXml {
                             self.errorMessage = "We couldn't edit app.xml or meta.xml.  Please try injecting again."
                             self.showError = true
-                        }catch SnesInjectorError.noIcon {
+                        }catch InjectorError.noIcon {
                             self.errorMessage = "We couldn't convert your images to the correct format.  Please try again later."
                             self.showError = true
-                        }catch SnesInjectorError.noOutput {
+                        }catch InjectorError.noOutput {
                             self.errorMessage = "We couldn't encrypt the final output.  Please try again."
                             self.showError = true
                         }catch {

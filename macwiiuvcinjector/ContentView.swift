@@ -26,9 +26,9 @@ struct ContentView: View {
                     NavigationLink(destination: snesView()) {
                         Text("Super Nintendo Entertainment System").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
-                    //NavigationLink(destination: snesView()){
-                       // Text("Nintendo Entertainment System")
-                    //}
+                    NavigationLink(destination: WiiView()){
+                        Text("Wii")
+                    }
                     NavigationLink(destination: SettingsView()){
                         Text("Common Key").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }

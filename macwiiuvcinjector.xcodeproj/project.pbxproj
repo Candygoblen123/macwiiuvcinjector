@@ -19,6 +19,10 @@
 		49D8BA9E23F606690086404B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8BA9D23F606690086404B /* SettingsView.swift */; };
 		49DDEC49240866DB00738700 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDEC48240866DB00738700 /* ImageHandler.swift */; };
 		49DFD0FA23FAC6EB00021009 /* wiiurpxtool in Resources */ = {isa = PBXBuildFile; fileRef = 49DFD0F923FAC6EB00021009 /* wiiurpxtool */; };
+		49E27F9B241139F500790B50 /* WiiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27F9A241139F500790B50 /* WiiView.swift */; };
+		49E27F9D24113A7400790B50 /* WiiInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27F9C24113A7400790B50 /* WiiInjector.swift */; };
+		49E27F9F24115DE500790B50 /* nfs2iso2nfs in Resources */ = {isa = PBXBuildFile; fileRef = 49E27F9E24115DE400790B50 /* nfs2iso2nfs */; };
+		49E27FA1241172B600790B50 /* wit in Resources */ = {isa = PBXBuildFile; fileRef = 49E27FA0241172B500790B50 /* wit */; };
 		49E99F4B23F4DC38002AD9AF /* SnesInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */; };
 		49E99F4D23F4E718002AD9AF /* JnusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4C23F4E718002AD9AF /* JnusTool.swift */; };
 		49F4A67323F2332E00B8D0CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4A67223F2332E00B8D0CF /* AppDelegate.swift */; };
@@ -41,6 +45,10 @@
 		49D8BA9D23F606690086404B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		49DDEC48240866DB00738700 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageHandler.swift; path = macwiiuvcinjector/ImageHandler.swift; sourceTree = SOURCE_ROOT; };
 		49DFD0F923FAC6EB00021009 /* wiiurpxtool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = wiiurpxtool; sourceTree = "<group>"; };
+		49E27F9A241139F500790B50 /* WiiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiiView.swift; sourceTree = "<group>"; };
+		49E27F9C24113A7400790B50 /* WiiInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiiInjector.swift; sourceTree = "<group>"; };
+		49E27F9E24115DE400790B50 /* nfs2iso2nfs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = nfs2iso2nfs; sourceTree = "<group>"; };
+		49E27FA0241172B500790B50 /* wit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = wit; sourceTree = "<group>"; };
 		49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnesInjector.swift; sourceTree = "<group>"; };
 		49E99F4C23F4E718002AD9AF /* JnusTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JnusTool.swift; sourceTree = "<group>"; };
 		49F4A66F23F2332E00B8D0CF /* macwiiuvcinjector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macwiiuvcinjector.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +79,8 @@
 				491EA6532408682B00A0D528 /* ImageMagick-7.0.9 */,
 				4995687823FDA6FF00B08CE5 /* retroinject */,
 				49DFD0F923FAC6EB00021009 /* wiiurpxtool */,
+				49E27FA0241172B500790B50 /* wit */,
+				49E27F9E24115DE400790B50 /* nfs2iso2nfs */,
 				4911500623F59FDC0031DEFA /* jnustool */,
 				49F4A67123F2332E00B8D0CF /* macwiiuvcinjector */,
 				49F4A67023F2332E00B8D0CF /* Products */,
@@ -91,6 +101,8 @@
 				49DDEC48240866DB00738700 /* ImageHandler.swift */,
 				492D781E240752E40070E0FB /* XML.swift */,
 				491A4C3A23F2E09B00452039 /* snesView.swift */,
+				49E27F9A241139F500790B50 /* WiiView.swift */,
+				49E27F9C24113A7400790B50 /* WiiInjector.swift */,
 				49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */,
 				4995E64A240942C3009F0DD9 /* NusPacker.swift */,
 				49E99F4C23F4E718002AD9AF /* JnusTool.swift */,
@@ -175,9 +187,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4995687923FDA70000B08CE5 /* retroinject in Resources */,
+				49E27F9F24115DE500790B50 /* nfs2iso2nfs in Resources */,
 				49DFD0FA23FAC6EB00021009 /* wiiurpxtool in Resources */,
 				4911500723F59FDD0031DEFA /* jnustool in Resources */,
 				49F4A67D23F2333200B8D0CF /* Main.storyboard in Resources */,
+				49E27FA1241172B600790B50 /* wit in Resources */,
 				49F4A67A23F2333200B8D0CF /* Preview Assets.xcassets in Resources */,
 				49432E3124094490002778E2 /* nuspacker in Resources */,
 				491EA6542408682B00A0D528 /* ImageMagick-7.0.9 in Resources */,
@@ -192,8 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E27F9B241139F500790B50 /* WiiView.swift in Sources */,
 				49DDEC49240866DB00738700 /* ImageHandler.swift in Sources */,
 				49D8BA9E23F606690086404B /* SettingsView.swift in Sources */,
+				49E27F9D24113A7400790B50 /* WiiInjector.swift in Sources */,
 				49A0E40623F3301300ACB384 /* GetFile.swift in Sources */,
 				492D781D24074F910070E0FB /* XmlHandler.swift in Sources */,
 				4995E64B240942C3009F0DD9 /* NusPacker.swift in Sources */,

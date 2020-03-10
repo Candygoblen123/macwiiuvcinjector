@@ -18,15 +18,14 @@ struct SnesInjector {
         let outputDir = file.saveFile(name: name) + "/"
         
         if outputDir == "/" {
-            throw SnesInjectorError.noOutDirectory
+            throw InjectorError.noOutDirectory
         }
         
         let base = jnustool.get(titleId: titleId, titleKey: titleKey)
         
-        if base == "\(AppDelegate().applicationSupportDir)/jnustool/" {
-            throw SnesInjectorError.noJnustoolDownload
+        if !filem.fileExists(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase") {
+            throw InjectorError.noJnustoolDownload
         }
-        
         
         
         // attempt to find the .rpx file in the code folder
@@ -116,7 +115,7 @@ struct SnesInjector {
         XmlHandler().metaXml(base: base, name: name)
         
         if !(filem.fileExists(atPath: "\(base)/code/app.xml") || filem.fileExists(atPath: "\(base)/meta/meta.xml")) {
-            throw SnesInjectorError.noXml
+            throw InjectorError.noXml
         }
         
         // replace the icon and bootscreens with the ones provided by the user
@@ -124,14 +123,14 @@ struct SnesInjector {
         ImageHandler().bootTv(bootTvTex: bootTvTex, base: base)
         
         if !(filem.fileExists(atPath: "\(base)/meta/icon.xml") || filem.fileExists(atPath: "\(base)/meta/bootTvTex.tga") || filem.fileExists(atPath: "\(base)/meta/bootDrcTex.tga")) {
-            throw SnesInjectorError.noIcon
+            throw InjectorError.noIcon
         }
         
         //package and encrypt the game for installation 
         NusPacker().pack(base: base, outputDir: outputDir)
         
         if try! filem.contentsOfDirectory(atPath: base) == [] {
-            throw SnesInjectorError.noOutput
+            throw InjectorError.noOutput
         }
         
         // delete the base folder
@@ -145,7 +144,7 @@ struct SnesInjector {
     }
 }
 
-enum SnesInjectorError: Error {
+enum InjectorError: Error {
     case noOutDirectory
     case noJnustoolDownload
     case noXml
