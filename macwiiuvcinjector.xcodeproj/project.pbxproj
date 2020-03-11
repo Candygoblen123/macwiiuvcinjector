@@ -12,6 +12,8 @@
 		491EA6542408682B00A0D528 /* ImageMagick-7.0.9 in Resources */ = {isa = PBXBuildFile; fileRef = 491EA6532408682B00A0D528 /* ImageMagick-7.0.9 */; };
 		492D781D24074F910070E0FB /* XmlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781C24074F910070E0FB /* XmlHandler.swift */; };
 		492D781F240752E40070E0FB /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781E240752E40070E0FB /* XML.swift */; };
+		49355073241815BE0004315A /* GcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49355072241815BE0004315A /* GcView.swift */; };
+		49355075241816460004315A /* GcInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49355074241816460004315A /* GcInjector.swift */; };
 		49432E3124094490002778E2 /* nuspacker in Resources */ = {isa = PBXBuildFile; fileRef = 49432E3024094490002778E2 /* nuspacker */; };
 		4995687923FDA70000B08CE5 /* retroinject in Resources */ = {isa = PBXBuildFile; fileRef = 4995687823FDA6FF00B08CE5 /* retroinject */; };
 		4995E64B240942C3009F0DD9 /* NusPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4995E64A240942C3009F0DD9 /* NusPacker.swift */; };
@@ -38,6 +40,8 @@
 		491EA6532408682B00A0D528 /* ImageMagick-7.0.9 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ImageMagick-7.0.9"; sourceTree = "<group>"; };
 		492D781C24074F910070E0FB /* XmlHandler.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = XmlHandler.swift; sourceTree = "<group>"; tabWidth = 4; };
 		492D781E240752E40070E0FB /* XML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XML.swift; sourceTree = "<group>"; };
+		49355072241815BE0004315A /* GcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GcView.swift; sourceTree = "<group>"; };
+		49355074241816460004315A /* GcInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GcInjector.swift; sourceTree = "<group>"; };
 		49432E3024094490002778E2 /* nuspacker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = nuspacker; sourceTree = "<group>"; };
 		4995687823FDA6FF00B08CE5 /* retroinject */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = retroinject; sourceTree = "<group>"; };
 		4995E64A240942C3009F0DD9 /* NusPacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NusPacker.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */,
 				4995E64A240942C3009F0DD9 /* NusPacker.swift */,
 				49E99F4C23F4E718002AD9AF /* JnusTool.swift */,
+				49355072241815BE0004315A /* GcView.swift */,
+				49355074241816460004315A /* GcInjector.swift */,
 				49F4A67223F2332E00B8D0CF /* AppDelegate.swift */,
 				49F4A67423F2332E00B8D0CF /* ContentView.swift */,
 				492D781C24074F910070E0FB /* XmlHandler.swift */,
@@ -214,7 +220,9 @@
 				492D781D24074F910070E0FB /* XmlHandler.swift in Sources */,
 				4995E64B240942C3009F0DD9 /* NusPacker.swift in Sources */,
 				49E99F4D23F4E718002AD9AF /* JnusTool.swift in Sources */,
+				49355073241815BE0004315A /* GcView.swift in Sources */,
 				49F4A67523F2332E00B8D0CF /* ContentView.swift in Sources */,
+				49355075241816460004315A /* GcInjector.swift in Sources */,
 				49E99F4B23F4DC38002AD9AF /* SnesInjector.swift in Sources */,
 				49F4A67323F2332E00B8D0CF /* AppDelegate.swift in Sources */,
 				492D781F240752E40070E0FB /* XML.swift in Sources */,

@@ -27,7 +27,10 @@ struct ContentView: View {
                         Text("Super Nintendo Entertainment System").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
                     NavigationLink(destination: WiiView()){
-                        Text("Wii")
+                        Text("Wii").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    }
+                    NavigationLink(destination: GcView()){
+                        Text("GameCube").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
                     NavigationLink(destination: SettingsView()){
                         Text("Common Key").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

@@ -32,7 +32,7 @@ struct snesView: View {
             HStack {
                 Text("Rom: \(self.romFile)").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 Button(action: {
-                    self.romFile = self.file.browseFile()
+                    self.romFile = self.file.browseFile(fileType: "sfc")
                 }){
                     Text("Select file...")
                 }
@@ -40,7 +40,7 @@ struct snesView: View {
             HStack {
                 Text("IconTex: \(self.iconTexFile)").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 Button(action: {
-                    self.iconTexFile = self.file.browseFile()
+                    self.iconTexFile = self.file.browseFile(fileType: "png")
                 }){
                     Text("Select file...")
                 }
@@ -48,7 +48,7 @@ struct snesView: View {
             HStack {
                 Text("bootTvTex: \(self.tvTexFile)").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 Button(action: {
-                    self.tvTexFile = self.file.browseFile()
+                    self.tvTexFile = self.file.browseFile(fileType: "png")
                 }){
                     Text("Select file...")
                 }
@@ -87,7 +87,7 @@ struct snesView: View {
                     let commonKeyString: String = String(data: commonKeyData ?? "".data(using: .utf8)!, encoding: String.Encoding.utf8) ?? ""
                     
                     if commonKeyString == "" || commonKeyString == "Wii U Common Key"{
-                        self.errorMessage = "Please provide the Wii U common key on the settings page."
+                        self.errorMessage = "Please provide the Wii U common key on the common key page."
                         self.showError = true
                     }
                     

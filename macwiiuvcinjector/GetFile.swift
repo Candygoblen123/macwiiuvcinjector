@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 class GetFile {
-    func browseFile() -> String {
+    func browseFile(fileType: String) -> String {
         let dialog = NSOpenPanel()
         
         dialog.title = "Choose a file:"
@@ -18,6 +18,8 @@ class GetFile {
         dialog.showsHiddenFiles = false
         dialog.canChooseDirectories = false
         dialog.canChooseFiles = true
+        dialog.allowsMultipleSelection = false
+        dialog.allowedFileTypes = [fileType]
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK){
             let result = dialog.url

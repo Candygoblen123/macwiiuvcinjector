@@ -1,15 +1,15 @@
 //
-//  WiiView.swift
+//  GcView.swift
 //  macwiiuvcinjector
 //
-//  Created by Andrew Glaze on 3/5/20.
+//  Created by Andrew Glaze on 3/10/20.
 //  Copyright © 2020 Candygoblen123. All rights reserved.
 //
 
 import SwiftUI
 
-struct WiiView: View {
-    let inj = WiiInjector()
+struct GcView: View {
+    let inj = GcInjector()
     let file = GetFile()
     @State var name :String = ""
     @State var romFile :String = "Please choose a ISO File"
@@ -59,7 +59,7 @@ struct WiiView: View {
             }
             HStack {
                 Text("Title Id:")
-                TextField("Please enter a Title Id for the base", text: $titleId)
+                TextField("We recommend using Rhythm Heaven Fever as the base", text: $titleId)
             }
             HStack {
                 Text("Title Key:")
@@ -94,7 +94,8 @@ struct WiiView: View {
                     if !self.showError {
                         do {
                             self.injectorStatus = "Injecting. This will take some time..."
-                            if try self.inj.inject(rom: self.romFile, iconTex: self.iconTexFile, bootTvTex: self.tvTexFile, titleId: self.titleId, titleKey: self.titleKey, name: self.name) {
+                            if try self.inj.inject(rom: self.romFile, iconTex: self.iconTexFile, bootTvTex: self.tvTexFile, titleId: self.titleId, titleKey: self.titleKey, name: self.name)
+                            {
                                 self.finishedInject = true
                                 self.injectorStatus = "Done!"
                             }
@@ -124,7 +125,11 @@ struct WiiView: View {
                     Alert(title: Text("Error."), message: Text(errorMessage), dismissButton: .default(Text("Dismiss")))
                 }
                 .alert(isPresented: self.$finishedInject) {
-                    Alert(title: Text("Finished"), message: Text("Your rom was succesfully injected."), dismissButton: .default(Text("Ok")))
+                    Alert(title: Text("Finished"), message: Text("Your rom was succesfully injected. (For GameCube injects, you will need nintendon't on the SD card. Note that you will not need to put your game's .iso(s) on the SD card, even though that the linked website says that you do.)"), primaryButton: .default(Text("Ok")), secondaryButton: .cancel(Text("Get Nintendon't"), action: {
+                        if let url = URL(string: "https://github.com/FIX94/Nintendont"){
+                            NSWorkspace.shared.open(url)
+                        }
+                    }))
                 }
                 
                 Text(self.injectorStatus)
@@ -135,8 +140,10 @@ struct WiiView: View {
     
 }
 
-struct WiiView_Previews: PreviewProvider {
+
+
+struct GcView_Previews: PreviewProvider {
     static var previews: some View {
-        WiiView()
+        GcView()
     }
 }
