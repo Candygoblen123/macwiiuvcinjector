@@ -1,7 +1,7 @@
 # macwiiuvcinjector
 A script that will inject roms into wiiu vc games on Catalina
 
-### Things that are working right now:
+### Things that are working in the latest release:
 - SNES injection
 
 ### If something is not working, please open an issue
