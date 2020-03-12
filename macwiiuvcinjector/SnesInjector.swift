@@ -144,10 +144,3 @@ struct SnesInjector {
     }
 }
 
-enum InjectorError: Error {
-    case noOutDirectory
-    case noJnustoolDownload
-    case noXml
-    case noIcon
-    case noOutput
-}

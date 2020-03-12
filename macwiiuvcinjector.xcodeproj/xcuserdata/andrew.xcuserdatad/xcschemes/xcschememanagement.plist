@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>injector.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>macwiiuvcinjector.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,6 +27,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4943CFCC2419444500289732</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>49F4A66E23F2332E00B8D0CF</key>
 		<dict>
 			<key>primary</key>

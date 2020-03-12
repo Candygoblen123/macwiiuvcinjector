@@ -22,7 +22,7 @@ struct GcInjector {
             throw InjectorError.noOutDirectory
         }
         
-        let base = jnustool.get(titleId: titleId, titleKey: titleKey)
+        let base = jnustool.get(titleId: titleId, titleKey: titleKey, console: "gamecube")
         
         if !filem.fileExists(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase") {
             throw InjectorError.noJnustoolDownload
@@ -101,7 +101,7 @@ struct GcInjector {
         do {
             let nfs2iso2nfs = Process()
             nfs2iso2nfs.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/nfs2iso2nfs")
-            nfs2iso2nfs.arguments = ["-enc"]
+            nfs2iso2nfs.arguments = ["-homebrew"]
             nfs2iso2nfs.currentDirectoryPath = "\(base)/content/"
             try nfs2iso2nfs.run()
             nfs2iso2nfs.waitUntilExit()
@@ -110,7 +110,7 @@ struct GcInjector {
         
         // Replace xml files with our own
         XmlHandler().appXml(base: base)
-        XmlHandler().metaXml(base: base, name: name)
+        XmlHandler().metaXml(base: base, name: name, console: "gamecube")
         
         if !(filem.fileExists(atPath: "\(base)/code/app.xml") || filem.fileExists(atPath: "\(base)/meta/meta.xml")) {
             throw InjectorError.noXml

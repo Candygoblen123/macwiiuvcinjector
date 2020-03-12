@@ -12,6 +12,7 @@ struct NusPacker {
     
     let filem = FileManager()
     let jar = Bundle.main.resourcePath! + "/nuspacker/NUSPacker.jar"
+    var applicationSupportDir = String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/"
     func pack(base: String, outputDir: String){
         let java = Process()
         do {
@@ -22,7 +23,7 @@ struct NusPacker {
         
         java.executableURL = URL(fileURLWithPath: "/usr/bin/java")
         java.arguments = ["-jar", jar, "-in", base, "-out", outputDir]
-        java.currentDirectoryPath = "\(AppDelegate().applicationSupportDir)/nuspacker/"
+        java.currentDirectoryPath = "\(applicationSupportDir)/nuspacker/"
         
         do {
             try java.run()

@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // delete a downloaded base, if it exists
         try? filem.removeItem(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase")
+        try? filem.removeItem(atPath: String(filem.temporaryDirectory.path) + "/wit")
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
@@ -42,3 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 }
 
+enum InjectorError: Error {
+    case noOutDirectory
+    case noJnustoolDownload
+    case noXml
+    case noIcon
+    case noOutput
+}

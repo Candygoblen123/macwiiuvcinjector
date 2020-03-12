@@ -22,7 +22,7 @@ struct WiiInjector {
             throw InjectorError.noOutDirectory
         }
         
-        let base = jnustool.get(titleId: titleId, titleKey: titleKey)
+        let base = jnustool.get(titleId: titleId, titleKey: titleKey, console: "wii")
         
         if !filem.fileExists(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase") {
             throw InjectorError.noJnustoolDownload

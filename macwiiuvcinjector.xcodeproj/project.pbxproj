@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,9 +14,26 @@
 		492D781F240752E40070E0FB /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781E240752E40070E0FB /* XML.swift */; };
 		49355073241815BE0004315A /* GcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49355072241815BE0004315A /* GcView.swift */; };
 		49355075241816460004315A /* GcInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49355074241816460004315A /* GcInjector.swift */; };
+		4941505324195B0000F48C25 /* SnesInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */; };
 		49432E3124094490002778E2 /* nuspacker in Resources */ = {isa = PBXBuildFile; fileRef = 49432E3024094490002778E2 /* nuspacker */; };
+		4943CFD5241944B300289732 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943CFD4241944B200289732 /* main.swift */; };
 		4995687923FDA70000B08CE5 /* retroinject in Resources */ = {isa = PBXBuildFile; fileRef = 4995687823FDA6FF00B08CE5 /* retroinject */; };
 		4995E64B240942C3009F0DD9 /* NusPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4995E64A240942C3009F0DD9 /* NusPacker.swift */; };
+		499D162B24199DE100625EE1 /* GetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0E40523F3301300ACB384 /* GetFile.swift */; };
+		499D162C24199DE400625EE1 /* JnusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4C23F4E718002AD9AF /* JnusTool.swift */; };
+		499D162D24199DE700625EE1 /* NusPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4995E64A240942C3009F0DD9 /* NusPacker.swift */; };
+		499D162E24199DE900625EE1 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDEC48240866DB00738700 /* ImageHandler.swift */; };
+		499D162F24199DED00625EE1 /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781E240752E40070E0FB /* XML.swift */; };
+		499D163024199DF100625EE1 /* WiiInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27F9C24113A7400790B50 /* WiiInjector.swift */; };
+		499D163124199DFD00625EE1 /* GcInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49355074241816460004315A /* GcInjector.swift */; };
+		499D163224199E0600625EE1 /* XmlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781C24074F910070E0FB /* XmlHandler.swift */; };
+		499D16332419A05800625EE1 /* nuspacker in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49432E3024094490002778E2 /* nuspacker */; };
+		499D16342419A0D800625EE1 /* ImageMagick-7.0.9 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 491EA6532408682B00A0D528 /* ImageMagick-7.0.9 */; };
+		499D16352419A0D800625EE1 /* retroinject in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4995687823FDA6FF00B08CE5 /* retroinject */; };
+		499D16362419A0D800625EE1 /* wiiurpxtool in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49DFD0F923FAC6EB00021009 /* wiiurpxtool */; };
+		499D16372419A0D800625EE1 /* wit in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49E27FA0241172B500790B50 /* wit */; };
+		499D16382419A0D800625EE1 /* nfs2iso2nfs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49E27F9E24115DE400790B50 /* nfs2iso2nfs */; };
+		499D16392419A0D800625EE1 /* jnustool in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4911500623F59FDC0031DEFA /* jnustool */; };
 		49A0E40623F3301300ACB384 /* GetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0E40523F3301300ACB384 /* GetFile.swift */; };
 		49D8BA9E23F606690086404B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8BA9D23F606690086404B /* SettingsView.swift */; };
 		49DDEC49240866DB00738700 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDEC48240866DB00738700 /* ImageHandler.swift */; };
@@ -32,7 +49,27 @@
 		49F4A67723F2333200B8D0CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F4A67623F2333200B8D0CF /* Assets.xcassets */; };
 		49F4A67A23F2333200B8D0CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F4A67923F2333200B8D0CF /* Preview Assets.xcassets */; };
 		49F4A67D23F2333200B8D0CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F4A67B23F2333200B8D0CF /* Main.storyboard */; };
+		49FE69962419473E000611E7 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 49FE69952419473E000611E7 /* ArgumentParser */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4943CFCB2419444500289732 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				499D16342419A0D800625EE1 /* ImageMagick-7.0.9 in CopyFiles */,
+				499D16352419A0D800625EE1 /* retroinject in CopyFiles */,
+				499D16362419A0D800625EE1 /* wiiurpxtool in CopyFiles */,
+				499D16372419A0D800625EE1 /* wit in CopyFiles */,
+				499D16382419A0D800625EE1 /* nfs2iso2nfs in CopyFiles */,
+				499D16392419A0D800625EE1 /* jnustool in CopyFiles */,
+				499D16332419A05800625EE1 /* nuspacker in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4911500623F59FDC0031DEFA /* jnustool */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jnustool; sourceTree = "<group>"; };
@@ -43,6 +80,8 @@
 		49355072241815BE0004315A /* GcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GcView.swift; sourceTree = "<group>"; };
 		49355074241816460004315A /* GcInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GcInjector.swift; sourceTree = "<group>"; };
 		49432E3024094490002778E2 /* nuspacker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = nuspacker; sourceTree = "<group>"; };
+		4943CFCD2419444500289732 /* injector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = injector; sourceTree = BUILT_PRODUCTS_DIR; };
+		4943CFD4241944B200289732 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4995687823FDA6FF00B08CE5 /* retroinject */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = retroinject; sourceTree = "<group>"; };
 		4995E64A240942C3009F0DD9 /* NusPacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NusPacker.swift; sourceTree = "<group>"; };
 		49A0E40523F3301300ACB384 /* GetFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFile.swift; sourceTree = "<group>"; };
@@ -66,6 +105,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4943CFCA2419444500289732 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FE69962419473E000611E7 /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49F4A66C23F2332E00B8D0CF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4943CFCE2419444500289732 /* injector */ = {
+			isa = PBXGroup;
+			children = (
+				4943CFD4241944B200289732 /* main.swift */,
+			);
+			path = injector;
+			sourceTree = "<group>";
+		};
 		49F4A66623F2332E00B8D0CF = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +142,7 @@
 				49E27F9E24115DE400790B50 /* nfs2iso2nfs */,
 				4911500623F59FDC0031DEFA /* jnustool */,
 				49F4A67123F2332E00B8D0CF /* macwiiuvcinjector */,
+				4943CFCE2419444500289732 /* injector */,
 				49F4A67023F2332E00B8D0CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				49F4A66F23F2332E00B8D0CF /* macwiiuvcinjector.app */,
+				4943CFCD2419444500289732 /* injector */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +194,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4943CFCC2419444500289732 /* injector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4943CFD32419444500289732 /* Build configuration list for PBXNativeTarget "injector" */;
+			buildPhases = (
+				4943CFC92419444500289732 /* Sources */,
+				4943CFCA2419444500289732 /* Frameworks */,
+				4943CFCB2419444500289732 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = injector;
+			packageProductDependencies = (
+				49FE69952419473E000611E7 /* ArgumentParser */,
+			);
+			productName = injector;
+			productReference = 4943CFCD2419444500289732 /* injector */;
+			productType = "com.apple.product-type.tool";
+		};
 		49F4A66E23F2332E00B8D0CF /* macwiiuvcinjector */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49F4A69823F2333300B8D0CF /* Build configuration list for PBXNativeTarget "macwiiuvcinjector" */;
@@ -164,6 +241,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Candygoblen123;
 				TargetAttributes = {
+					4943CFCC2419444500289732 = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+					};
 					49F4A66E23F2332E00B8D0CF = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -178,11 +259,15 @@
 				Base,
 			);
 			mainGroup = 49F4A66623F2332E00B8D0CF;
+			packageReferences = (
+				49FE69942419473E000611E7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 49F4A67023F2332E00B8D0CF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				49F4A66E23F2332E00B8D0CF /* macwiiuvcinjector */,
+				4943CFCC2419444500289732 /* injector */,
 			);
 		};
 /* End PBXProject section */
@@ -208,6 +293,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4943CFC92419444500289732 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				499D163224199E0600625EE1 /* XmlHandler.swift in Sources */,
+				499D162F24199DED00625EE1 /* XML.swift in Sources */,
+				4941505324195B0000F48C25 /* SnesInjector.swift in Sources */,
+				499D162B24199DE100625EE1 /* GetFile.swift in Sources */,
+				499D163024199DF100625EE1 /* WiiInjector.swift in Sources */,
+				499D162D24199DE700625EE1 /* NusPacker.swift in Sources */,
+				4943CFD5241944B300289732 /* main.swift in Sources */,
+				499D162E24199DE900625EE1 /* ImageHandler.swift in Sources */,
+				499D163124199DFD00625EE1 /* GcInjector.swift in Sources */,
+				499D162C24199DE400625EE1 /* JnusTool.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49F4A66B23F2332E00B8D0CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,6 +346,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4943CFD12419444500289732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4943CFD22419444500289732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		49F4A69623F2333300B8D0CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -408,6 +543,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4943CFD32419444500289732 /* Build configuration list for PBXNativeTarget "injector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4943CFD12419444500289732 /* Debug */,
+				4943CFD22419444500289732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		49F4A66A23F2332E00B8D0CF /* Build configuration list for PBXProject "macwiiuvcinjector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -427,6 +571,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49FE69942419473E000611E7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49FE69952419473E000611E7 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49FE69942419473E000611E7 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 49F4A66723F2332E00B8D0CF /* Project object */;
 }
