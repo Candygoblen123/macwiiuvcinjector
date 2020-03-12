@@ -79,6 +79,8 @@
 		492D781E240752E40070E0FB /* XML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XML.swift; sourceTree = "<group>"; };
 		49355072241815BE0004315A /* GcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GcView.swift; sourceTree = "<group>"; };
 		49355074241816460004315A /* GcInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GcInjector.swift; sourceTree = "<group>"; };
+		4941E1A3241AA1F900EFC589 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		4941E1A4241AA1FA00EFC589 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		49432E3024094490002778E2 /* nuspacker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = nuspacker; sourceTree = "<group>"; };
 		4943CFCD2419444500289732 /* injector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = injector; sourceTree = BUILT_PRODUCTS_DIR; };
 		4943CFD4241944B200289732 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -134,6 +136,8 @@
 		49F4A66623F2332E00B8D0CF = {
 			isa = PBXGroup;
 			children = (
+				4941E1A4241AA1FA00EFC589 /* README.md */,
+				4941E1A3241AA1F900EFC589 /* LICENSE */,
 				49432E3024094490002778E2 /* nuspacker */,
 				491EA6532408682B00A0D528 /* ImageMagick-7.0.9 */,
 				4995687823FDA6FF00B08CE5 /* retroinject */,
