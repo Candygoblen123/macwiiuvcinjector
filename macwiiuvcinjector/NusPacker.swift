@@ -11,7 +11,7 @@ import Foundation
 struct NusPacker {
     
     let filem = FileManager()
-    let jar = Bundle.main.resourcePath! + "/nuspacker/NUSPacker.jar"
+    let jar = Bundle.main.resourcePath! + "/tools/nuspacker/NUSPacker.jar"
     var applicationSupportDir = String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/"
     func pack(base: String, outputDir: String){
         let java = Process()

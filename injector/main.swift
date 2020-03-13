@@ -126,7 +126,7 @@ class CommonKeyManager {
         
         // copy updatetitles.csv to the jnustool workingdir
         do {
-            try filem.copyItem(atPath: Bundle.main.resourcePath! + "/jnustool/updatetitles.csv", toPath: "\(applicationSupportDir)/jnustool/updatetitles.csv")
+            try filem.copyItem(atPath: Bundle.main.resourcePath! + "/tools/jnustool/updatetitles.csv", toPath: "\(applicationSupportDir)/jnustool/updatetitles.csv")
         } catch {
             print("updatetitles.csv not copied to jnustool directory")
         }

@@ -45,7 +45,7 @@ struct SnesInjector {
         // Decompress the .rpx file into an .elf file, so that we can edit the contents
         let wiiurpxtool = Process()
         
-        wiiurpxtool.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wiiurpxtool")
+        wiiurpxtool.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wiiurpxtool")
         
         wiiurpxtool.arguments = [ "-d", "\(base)/code/\(rpxFile)", "\(base)/code/in.elf"]
         
@@ -64,7 +64,7 @@ struct SnesInjector {
         // Set up a retroinject process to inject the rom into the decompressed "in.elf" file
         let retroinject = Process()
         
-        retroinject.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/retroinject")
+        retroinject.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/retroinject")
         
         retroinject.arguments = ["\(base)/code/in.elf", rom, "\(base)/code/out.elf"]
         
@@ -85,7 +85,7 @@ struct SnesInjector {
         // run wiiurpxtool again to compress the modified .elf file into a .rpx file
         let wiiurpxtool2 = Process()
         
-        wiiurpxtool2.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wiiurpxtool")
+        wiiurpxtool2.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wiiurpxtool")
         wiiurpxtool2.arguments = [ "-c", "\(base)/code/out.elf", "\(base)/code/\(rpxFile)"]
         
         //print(wiiurpxtool2.arguments)

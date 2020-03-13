@@ -51,7 +51,7 @@ struct WiiInjector {
         do {
             try filem.createDirectory(atPath: tmpDir, withIntermediateDirectories: true)
             let wit = Process()
-            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wit/bin/wit")
+            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wit/bin/wit")
             wit.arguments = ["extract", rom, "--DEST", tmpDir + "extracted/", "--psel", "data", "-vv1"]
             try wit.run()
             wit.waitUntilExit()
@@ -61,7 +61,7 @@ struct WiiInjector {
         
         do {
             let wit = Process()
-            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wit/bin/wit")
+            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wit/bin/wit")
             wit.arguments = ["copy", tmpDir + "extracted/", "--DEST", tmpDir + "game.iso", "-ovv", "--links", "--iso"]
             try wit.run()
             wit.waitUntilExit()
@@ -72,7 +72,7 @@ struct WiiInjector {
         
         do {
             let wit = Process()
-            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wit/bin/wit")
+            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wit/bin/wit")
             wit.arguments = ["extract", tmpDir + "game.iso", "--psel", "data", "--files", "+tmd.bin", "--files", "+ticket.bin", "--dest", tmpDir + "cert/", "-vv1"]
             try wit.run()
             wit.waitUntilExit()
@@ -86,7 +86,7 @@ struct WiiInjector {
         
         do {
             let nfs2iso2nfs = Process()
-            nfs2iso2nfs.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/nfs2iso2nfs")
+            nfs2iso2nfs.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/nfs2iso2nfs")
             nfs2iso2nfs.arguments = ["-enc"]
             nfs2iso2nfs.currentDirectoryPath = "\(base)/content/"
             try nfs2iso2nfs.run()

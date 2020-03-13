@@ -11,7 +11,7 @@ import Foundation
 struct JnusTool {
     
     let filem = FileManager()
-    let jar = Bundle.main.resourcePath! + "/jnustool/JNUSTool.jar"
+    let jar = Bundle.main.resourcePath! + "/tools/jnustool/JNUSTool.jar"
     var applicationSupportDir = String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/"
     
     func get(titleId: String, titleKey: String, console: String? = nil) -> String {

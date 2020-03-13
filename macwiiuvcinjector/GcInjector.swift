@@ -50,10 +50,10 @@ struct GcInjector {
         
         do {
             try filem.createDirectory(atPath: tmpDir, withIntermediateDirectories: true)
-            try filem.copyItem(atPath: Bundle.main.resourcePath! + "/wit/gcbase/", toPath: "\(tmpDir)/gcbase")
+            try filem.copyItem(atPath: Bundle.main.resourcePath! + "/tools/wit/gcbase/", toPath: "\(tmpDir)/gcbase")
             try filem.copyItem(atPath: rom, toPath: "\(tmpDir)/gcbase/files/game.iso")
             let wit = Process()
-            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wit/bin/wit")
+            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wit/bin/wit")
             wit.arguments = ["copy", "\(tmpDir)/gcbase", "\(tmpDir)/game.iso", "-o", "--raw"]
             try wit.run()
             wit.waitUntilExit()
@@ -64,7 +64,7 @@ struct GcInjector {
         
         do {
             let wit = Process()
-            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wit/bin/wit")
+            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wit/bin/wit")
             wit.arguments = ["extract", "\(tmpDir)/game.iso", "--DEST", tmpDir + "extracted/", "--psel", "data", "-vv1"]
             try wit.run()
             wit.waitUntilExit()
@@ -75,7 +75,7 @@ struct GcInjector {
         
         do {
             let wit = Process()
-            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wit/bin/wit")
+            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wit/bin/wit")
             wit.arguments = ["copy", tmpDir + "extracted/", "--DEST", tmpDir + "game.iso", "-ovv", "--links", "--iso"]
             try wit.run()
             wit.waitUntilExit()
@@ -86,7 +86,7 @@ struct GcInjector {
         
         do {
             let wit = Process()
-            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/wit/bin/wit")
+            wit.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/wit/bin/wit")
             wit.arguments = ["extract", tmpDir + "game.iso", "--psel", "data", "--files", "+tmd.bin", "--files", "+ticket.bin", "--dest", tmpDir + "cert/", "-vv1"]
             try wit.run()
             wit.waitUntilExit()
@@ -100,7 +100,7 @@ struct GcInjector {
         
         do {
             let nfs2iso2nfs = Process()
-            nfs2iso2nfs.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/nfs2iso2nfs")
+            nfs2iso2nfs.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/nfs2iso2nfs")
             nfs2iso2nfs.arguments = ["-homebrew"]
             nfs2iso2nfs.currentDirectoryPath = "\(base)/content/"
             try nfs2iso2nfs.run()
