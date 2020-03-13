@@ -110,7 +110,7 @@ struct GcInjector {
         
         // Replace xml files with our own
         XmlHandler().appXml(base: base)
-        XmlHandler().metaXml(base: base, name: name, console: "gamecube")
+        XmlHandler().metaXml(base: base, name: name)
         
         if !(filem.fileExists(atPath: "\(base)/code/app.xml") || filem.fileExists(atPath: "\(base)/meta/meta.xml")) {
             throw InjectorError.noXml

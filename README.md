@@ -13,7 +13,7 @@ A script that will inject roms into wiiu vc games on Catalina
 - [ ] N64 injector
 - [ ] GBA injector
 - [x] Wii injector
-- [x] GCN injector
+- [x] GCN injector (If your Gamecube inject does not work, try  [this](https://github.com/FIX94/Nintendont/blob/f0694cd68c126ada84fda81307639b3d4e3f72e4/loader/loader.dol) version of nintendon't.)
 
 #### Key
 - [x] Checked boxes are complete

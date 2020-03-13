@@ -34,7 +34,7 @@ class XmlHandler {
         filem.createFile(atPath: "\(base)/code/app.xml", contents: str.data(using: .utf8))
     }
     
-    func metaXml(base: String, name: String, console: String? = nil) {
+    func metaXml(base: String, name: String) {
         // phrase meta.xml, set a new titleid and name, then overwrite with our new meta.xml
          guard let metaXml = XML(contentsOf: URL(fileURLWithPath: "\(base)/meta/meta.xml")) else {return}
         
@@ -64,10 +64,6 @@ class XmlHandler {
         metaXml[0]["shortname_pt"]?.text = name
         metaXml[0]["shortname_ru"]?.text = name
         metaXml[0]["shortname_zht"]?.text = name
-        
-        if console == "gamecube" {
-            metaXml[0]["drc_use"]?.text = "65537"
-        }
         
         // pretty formatting (may not be required)
         var str :String = ""
