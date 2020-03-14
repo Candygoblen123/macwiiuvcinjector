@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4943CFCC2419444500289732"
-               BuildableName = "injector"
-               BlueprintName = "injector"
+               BuildableName = "wiiuinjector"
+               BlueprintName = "wiiuinjector"
                ReferencedContainer = "container:macwiiuvcinjector.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4943CFCC2419444500289732"
-            BuildableName = "injector"
-            BlueprintName = "injector"
+            BuildableName = "wiiuinjector"
+            BlueprintName = "wiiuinjector"
             ReferencedContainer = "container:macwiiuvcinjector.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4943CFCC2419444500289732"
-            BuildableName = "injector"
-            BlueprintName = "injector"
+            BuildableName = "wiiuinjector"
+            BlueprintName = "wiiuinjector"
             ReferencedContainer = "container:macwiiuvcinjector.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

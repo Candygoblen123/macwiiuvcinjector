@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "49866FD0241D550A0057A1CB"
+               BuildableName = "macwiiuvcinjectorTests.xctest"
+               BlueprintName = "macwiiuvcinjectorTests"
+               ReferencedContainer = "container:macwiiuvcinjector.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

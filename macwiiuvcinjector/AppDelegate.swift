@@ -31,8 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered, defer: false)
         window.center()
         window.setFrameAutosaveName("Injector")
-        let settings = SettingsManager()
-        window.contentView = NSHostingView(rootView: contentView.environmentObject(settings))
+        window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
     }
 

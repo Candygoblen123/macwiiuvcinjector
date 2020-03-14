@@ -61,7 +61,7 @@
 		49355074241816460004315A /* GcInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GcInjector.swift; sourceTree = "<group>"; };
 		4941E1A3241AA1F900EFC589 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		4941E1A4241AA1FA00EFC589 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		4943CFCD2419444500289732 /* injector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = injector; sourceTree = BUILT_PRODUCTS_DIR; };
+		4943CFCD2419444500289732 /* wiiuinjector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wiiuinjector; sourceTree = BUILT_PRODUCTS_DIR; };
 		4943CFD4241944B200289732 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		49934318241BF1A300F9F9D2 /* tools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tools; sourceTree = "<group>"; };
 		4995E64A240942C3009F0DD9 /* NusPacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NusPacker.swift; sourceTree = "<group>"; };
@@ -101,12 +101,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4943CFCE2419444500289732 /* injector */ = {
+		4943CFCE2419444500289732 /* wiiuinjector */ = {
 			isa = PBXGroup;
 			children = (
 				4943CFD4241944B200289732 /* main.swift */,
 			);
-			path = injector;
+			path = wiiuinjector;
 			sourceTree = "<group>";
 		};
 		49F4A66623F2332E00B8D0CF = {
@@ -116,7 +116,7 @@
 				4941E1A4241AA1FA00EFC589 /* README.md */,
 				4941E1A3241AA1F900EFC589 /* LICENSE */,
 				49F4A67123F2332E00B8D0CF /* macwiiuvcinjector */,
-				4943CFCE2419444500289732 /* injector */,
+				4943CFCE2419444500289732 /* wiiuinjector */,
 				49F4A67023F2332E00B8D0CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				49F4A66F23F2332E00B8D0CF /* macwiiuvcinjector.app */,
-				4943CFCD2419444500289732 /* injector */,
+				4943CFCD2419444500289732 /* wiiuinjector */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,9 +168,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4943CFCC2419444500289732 /* injector */ = {
+		4943CFCC2419444500289732 /* wiiuinjector */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4943CFD32419444500289732 /* Build configuration list for PBXNativeTarget "injector" */;
+			buildConfigurationList = 4943CFD32419444500289732 /* Build configuration list for PBXNativeTarget "wiiuinjector" */;
 			buildPhases = (
 				4943CFC92419444500289732 /* Sources */,
 				4943CFCA2419444500289732 /* Frameworks */,
@@ -180,12 +180,12 @@
 			);
 			dependencies = (
 			);
-			name = injector;
+			name = wiiuinjector;
 			packageProductDependencies = (
 				49FE69952419473E000611E7 /* ArgumentParser */,
 			);
 			productName = injector;
-			productReference = 4943CFCD2419444500289732 /* injector */;
+			productReference = 4943CFCD2419444500289732 /* wiiuinjector */;
 			productType = "com.apple.product-type.tool";
 		};
 		49F4A66E23F2332E00B8D0CF /* macwiiuvcinjector */ = {
@@ -241,7 +241,7 @@
 			projectRoot = "";
 			targets = (
 				49F4A66E23F2332E00B8D0CF /* macwiiuvcinjector */,
-				4943CFCC2419444500289732 /* injector */,
+				4943CFCC2419444500289732 /* wiiuinjector */,
 			);
 		};
 /* End PBXProject section */
@@ -513,7 +513,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4943CFD32419444500289732 /* Build configuration list for PBXNativeTarget "injector" */ = {
+		4943CFD32419444500289732 /* Build configuration list for PBXNativeTarget "wiiuinjector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4943CFD12419444500289732 /* Debug */,
