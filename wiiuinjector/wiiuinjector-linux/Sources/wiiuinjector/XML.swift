@@ -6,6 +6,7 @@
 //  Copyright © 2016 interactivecoconut. All rights reserved.
 //
 import Foundation
+import FoundationXML
 //Use XML class for XML document
 //Parse using Foundation's XMLParser
 class XML: XMLNode {
