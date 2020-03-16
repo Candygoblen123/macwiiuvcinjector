@@ -63,7 +63,7 @@
 		4941E1A4241AA1FA00EFC589 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		4943CFCD2419444500289732 /* wiiuinjector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wiiuinjector; sourceTree = BUILT_PRODUCTS_DIR; };
 		4943CFD4241944B200289732 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		495AAAA6241FD31D00BD726C /* wiiuinjector */ = {isa = PBXFileReference; lastKnownFileType = folder; name = wiiuinjector; path = /Users/andrew/Documents/macwiiuvcinjector/wiiuinjector/wiiuinjector; sourceTree = "<absolute>"; };
+		495AAAA6241FD31D00BD726C /* wiiuinjector-linux */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "wiiuinjector-linux"; path = "/Users/andrew/Documents/macwiiuvcinjector/wiiuinjector/wiiuinjector-linux"; sourceTree = "<absolute>"; };
 		49934318241BF1A300F9F9D2 /* tools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tools; sourceTree = "<group>"; };
 		4995E64A240942C3009F0DD9 /* NusPacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NusPacker.swift; sourceTree = "<group>"; };
 		49A0E40523F3301300ACB384 /* GetFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFile.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		4943CFCE2419444500289732 /* wiiuinjector */ = {
 			isa = PBXGroup;
 			children = (
-				495AAAA6241FD31D00BD726C /* wiiuinjector */,
+				495AAAA6241FD31D00BD726C /* wiiuinjector-linux */,
 				4943CFD4241944B200289732 /* main.swift */,
 			);
 			path = wiiuinjector;
