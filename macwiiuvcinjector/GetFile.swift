@@ -6,6 +6,8 @@
 //  Copyright © 2020 Candygoblen123. All rights reserved.
 //
 
+
+#if os(macOS)
 import Foundation
 import SwiftUI
 
@@ -50,3 +52,17 @@ class GetFile {
         return ""
     }
 }
+
+#else
+import Foundation
+
+class GetFile {
+    func saveFile(name: String) -> String {
+        print("Where would you like to save the final injected game?")
+        let file = readLine()!
+        return file
+    }
+}
+
+
+#endif
