@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FoundationXML
 let filem = FileManager()
 // create a new, randomized titleid
 let newTitleId = "00050000" + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10))
