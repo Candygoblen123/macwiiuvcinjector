@@ -86,8 +86,8 @@ struct WiiInjector {
         
         do {
             let nfs2iso2nfs = Process()
-            nfs2iso2nfs.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/nfs2iso2nfs")
-            nfs2iso2nfs.arguments = ["-enc"]
+            nfs2iso2nfs.executableURL = URL(fileURLWithPath: "/usr/bin/mono")
+            nfs2iso2nfs.arguments = [Bundle.main.resourcePath! + "/tools/nfs2iso2nfs", "-enc"]
             nfs2iso2nfs.currentDirectoryPath = "\(base)/content/"
             try nfs2iso2nfs.run()
             nfs2iso2nfs.waitUntilExit()
