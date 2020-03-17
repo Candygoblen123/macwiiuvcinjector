@@ -58,7 +58,7 @@ import Foundation
 
 class GetFile {
     func saveFile(name: String) -> String {
-        print("Where would you like to save the final injected game?")
+        print("Where would you like to save the final injected game? (It must be an absolute path)")
         let file = readLine()!
         return file
     }
