@@ -150,6 +150,6 @@ enum InjectorError: Error {
     case noOutput
 }
 
-print(Bundle.main.resourcePath!)
+print(String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/")
 
 Inject.main()

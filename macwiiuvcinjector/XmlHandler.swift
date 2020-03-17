@@ -39,6 +39,7 @@ class XmlHandler {
          guard let metaXml = XML(contentsOf: URL(fileURLWithPath: "\(base)/meta/meta.xml")) else {return}
         
         metaXml[0]["title_id"]?.text = newTitleId
+        
         metaXml[0]["longname_ja"]?.text = name
         metaXml[0]["longname_en"]?.text = name
         metaXml[0]["longname_fr"]?.text = name
