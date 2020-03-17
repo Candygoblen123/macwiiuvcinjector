@@ -34,8 +34,8 @@ struct Inject: ParsableCommand {
     func run() throws {
         let filem = FileManager()
         
-        try? filem.removeItem(atPath: ".tmp/jnustoolBase")
-        try? filem.removeItem(atPath: ".tmp/wit")
+        try? filem.removeItem(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase")
+        try? filem.removeItem(atPath: String(filem.temporaryDirectory.path) + "/wit")
         
         let applicationSupportDir = String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/"
         

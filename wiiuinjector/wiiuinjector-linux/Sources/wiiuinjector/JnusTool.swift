@@ -64,8 +64,8 @@ struct JnusTool {
                 }
             }
             //move item to a system tmp directory
-            try filem.moveItem(atPath: base, toPath: ".tmp/jnustoolBase")
-            base = ".tmp/jnustoolBase"
+            try filem.moveItem(atPath: base, toPath: String(filem.temporaryDirectory.path) + "/jnustoolBase")
+            base = String(filem.temporaryDirectory.path) + "/jnustoolBase"
         }catch {
             print(error)
         }
