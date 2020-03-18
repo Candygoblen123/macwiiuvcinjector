@@ -101,7 +101,7 @@ struct GcInjector {
         do {
             let nfs2iso2nfs = Process()
             nfs2iso2nfs.executableURL = URL(fileURLWithPath: "/usr/bin/mono")
-            nfs2iso2nfs.arguments = ["/tools/nfs2iso2nfs", "-enc", "-homebrew"]
+            nfs2iso2nfs.arguments = [ Bundle.main.resourcePath! + "/tools/nfs2iso2nfs", "-enc", "-homebrew"]
             nfs2iso2nfs.currentDirectoryPath = "\(base)/content/"
             try nfs2iso2nfs.run()
             nfs2iso2nfs.waitUntilExit()
