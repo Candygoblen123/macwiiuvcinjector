@@ -69,6 +69,7 @@
 		49A0E40523F3301300ACB384 /* GetFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFile.swift; sourceTree = "<group>"; };
 		49D8BA9D23F606690086404B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		49DDEC48240866DB00738700 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageHandler.swift; path = macwiiuvcinjector/ImageHandler.swift; sourceTree = SOURCE_ROOT; };
+		49DE96F82425369C0086A309 /* MagickWand */ = {isa = PBXFileReference; lastKnownFileType = text; path = MagickWand; sourceTree = SOURCE_ROOT; };
 		49E27F9A241139F500790B50 /* WiiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiiView.swift; sourceTree = "<group>"; };
 		49E27F9C24113A7400790B50 /* WiiInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiiInjector.swift; sourceTree = "<group>"; };
 		49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnesInjector.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		49F4A66623F2332E00B8D0CF = {
 			isa = PBXGroup;
 			children = (
+				49DE96F82425369C0086A309 /* MagickWand */,
 				49934318241BF1A300F9F9D2 /* tools */,
 				4941E1A4241AA1FA00EFC589 /* README.md */,
 				4941E1A3241AA1F900EFC589 /* LICENSE */,
@@ -393,19 +395,32 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_USE_STANDARD_INCLUDE_SEARCHING = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/MagickWand/ImageMagick-7/MagickCore",
+					"${SRCROOT}/MagickWand/ImageMagick-7/MagickWand",
+					"${SRCROOT}/MagickWand/ImageMagick-7",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DMAGICKCORE_HDRI_ENABLE=1",
+					"-DMAGICKCORE_QUANTUM_DEPTH=16",
+				);
+				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/MagickWand";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -447,18 +462,31 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_USE_STANDARD_INCLUDE_SEARCHING = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/MagickWand/ImageMagick-7/MagickCore",
+					"${SRCROOT}/MagickWand/ImageMagick-7/MagickWand",
+					"${SRCROOT}/MagickWand/ImageMagick-7",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = (
+					"-DMAGICKCORE_HDRI_ENABLE=1",
+					"-DMAGICKCORE_QUANTUM_DEPTH=16",
+				);
+				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/MagickWand";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

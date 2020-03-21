@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MagickWand
 
 struct ImageHandler {
     // The wii u expects this data to be appended to the end of every tga file

@@ -150,6 +150,6 @@ enum InjectorError: Error {
     case noOutput
 }
 
-print(String(filem.temporaryDirectory.path) + "/jnustoolBase")
+print(Bundle.main.resourcePath!)
 
 Inject.main()
