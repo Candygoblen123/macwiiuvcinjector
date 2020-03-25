@@ -14,10 +14,10 @@
             filePath = "macwiiuvcinjector/ImageHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "icon(iconTex:base:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -161,6 +161,22 @@
             startingLineNumber = "17"
             endingLineNumber = "17"
             landmarkName = "inject(rom:iconTex:bootTvTex:titleId:titleKey:name:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C012007-1D0E-4361-B3DF-26EDA4DE16A1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "macwiiuvcinjector/ImageHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "icon(iconTex:base:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

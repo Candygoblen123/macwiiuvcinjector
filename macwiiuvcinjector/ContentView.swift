@@ -23,7 +23,7 @@ struct ContentView: View {
             }
             NavigationView {
                 List {
-                    NavigationLink(destination: snesView()) {
+                    NavigationLink(destination: SnesView()) {
                         Text("Super Nintendo Entertainment System").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
                     NavigationLink(destination: WiiView()){

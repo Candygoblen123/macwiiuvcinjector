@@ -17,15 +17,16 @@ struct SettingsView: View {
         VStack(alignment: .leading){
             Text("Please enter the Wii U Common Key:")
             Text("(If you have already done this, you will not need to do it again.)")
-            HStack{
-                TextField("\(commonKey)", text: $tmpCommonKey)
-                Button(action: {
-                    self.settings.saveCommonKey(commonKey: self.tmpCommonKey)
-                }){
-                    Text("Save")
-                }
+            TextField("\(commonKey)", text: $tmpCommonKey)
+        }.padding().onAppear(perform: {
+            self.commonKey = self.settings.loadCommonKey()
+            
+        }).onDisappear(perform: {
+            if self.tmpCommonKey != "" {
+                self.settings.saveCommonKey(commonKey: self.tmpCommonKey)
             }
-        }.padding().onAppear(perform: {self.commonKey = self.settings.loadCommonKey()})
+            
+        })
     }
 }
 

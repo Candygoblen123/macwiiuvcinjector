@@ -15,63 +15,86 @@ struct ImageHandler {
     
     func icon(iconTex: String, base :String) {
         //convert png icon to a wii u compadible tga icon
-        //set up a inagemagick process
-        let imageMagic = Process()
-        imageMagic.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9/bin/magick")
+        //set up MagickWand
+        MagickWandGenesis()
+        let iconWand = NewMagickWand()
         
-        //arguements needed to convert to a wii u compatible icon
-        imageMagic.arguments = [iconTex, "-resize", #"128x128\!"#, "-depth", "32", "+compress", "-orient", "BottomLeft", "-flip", "\(base)/meta/iconTex.tga"]
-        
-        //imagemagick requires you to spesify certain paths in the enviroment
-        imageMagic.environment = ["MAGICK_HOME" : Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9", "DYLD_LIBRARY_PATH" : Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9/lib/"]
-        
-        do {
-            try imageMagic.run()
-            //wait until imagemagick is done
-            imageMagic.waitUntilExit()
-        } catch {
-            print(error)
+        //read the png file
+        if MagickReadImage(iconWand, iconTex) == MagickFalse{
+            print("could not read iconTex")
         }
         
-        //append truevisionFileData to the iconTex file, so that it will work with the wii u
+        //do the conversion
+        MagickResizeImage(iconWand, 128, 128, LanczosFilter)
+        MagickSetDepth(iconWand, 32)
+        MagickSetImageCompression(iconWand, NoCompression)
+        MagickSetImageOrientation(iconWand, BottomLeftOrientation)
+        MagickFlipImage(iconWand)
+        
+        //write the image to file
+        if MagickWriteImage(iconWand, "\(base)/meta/iconTex.tga") == MagickFalse {
+            print("could not write iconTex.tga file")
+        }
+        
+        //clean up
+        DestroyMagickWand(iconWand)
+        MagickWandTerminus()
+        
+        //append the truevision data 
         let iconFile =  FileHandle(forWritingAtPath: "\(base)/meta/iconTex.tga")
         iconFile?.seekToEndOfFile()
         iconFile?.write(truevisionFileData)
+ 
     }
     
     func bootTv(bootTvTex: String, base :String) {
         //convert png bootTvTex to a wii u compadible tga bootTvTex and bootDrcTex
-        let imageMagic = Process()
-        imageMagic.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9/bin/magick")
+        //set up MagickWand
+        MagickWandGenesis()
+        let tvWand = NewMagickWand()
+        let drcWand = NewMagickWand()
         
-        imageMagic.arguments = [bootTvTex, "-resize", #"1280x720\!"# , "-depth", "24", "+compress", "-alpha", "off", "-orient", "BottomLeft", "-flip", "\(base)/meta/bootTvTex.tga"]
-        
-        imageMagic.environment = ["MAGICK_HOME" : Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9", "DYLD_LIBRARY_PATH" : Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9/lib/"]
-        
-        do {
-            try imageMagic.run()
-            imageMagic.waitUntilExit()
-        } catch {
-            print(error)
+        //read the png
+        if MagickReadImage(tvWand, bootTvTex) == MagickFalse {
+            print("could not read bootTv file")
+        }
+        if MagickReadImage(drcWand, bootTvTex) == MagickFalse {
+            print("could not read bootTv file")
         }
         
+        //do the conversion for tvWand
+        MagickResizeImage(tvWand, 1280, 720, LanczosFilter)
+        MagickSetDepth(tvWand, 24)
+        MagickSetImageCompression(tvWand, NoCompression)
+        MagickSetImageAlphaChannel(tvWand, DeactivateAlphaChannel)
+        MagickSetImageOrientation(tvWand, BottomLeftOrientation)
+        MagickFlipImage(tvWand)
+        
+        //do the conversion for drcWand
+        MagickResizeImage(drcWand, 854, 480, LanczosFilter)
+        MagickSetDepth(drcWand, 24)
+        MagickSetImageCompression(drcWand, NoCompression)
+        MagickSetImageAlphaChannel(drcWand, DeactivateAlphaChannel)
+        MagickSetImageOrientation(drcWand, BottomLeftOrientation)
+        MagickFlipImage(drcWand)
+        
+        //write the tgas to file
+        if MagickWriteImage(tvWand, "\(base)/meta/bootTvTex.tga") == MagickFalse {
+            print("could not write bootTvTex.tga file")
+        }
+        if MagickWriteImage(drcWand, "\(base)/meta/bootDrcTex.tga") == MagickFalse {
+            print("could not write bootDrcTex.tga file")
+        }
+        
+        //clean up
+        DestroyMagickWand(tvWand)
+        DestroyMagickWand(drcWand)
+        MagickWandTerminus()
+        
+        //append the truevision data
         let bootTvFile =  FileHandle(forWritingAtPath: "\(base)/meta/bootTvTex.tga")
         bootTvFile?.seekToEndOfFile()
         bootTvFile?.write(truevisionFileData)
-        
-        let imageMagic2 = Process()
-        imageMagic2.executableURL = URL(fileURLWithPath: Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9/bin/magick")
-        
-        imageMagic2.arguments = [bootTvTex, "-resize", #"854x480\!"#, "-depth", "24", "+compress", "-alpha", "off", "-orient", "BottomLeft", "-flip", "\(base)/meta/bootDrcTex.tga"]
-        
-        imageMagic2.environment = ["MAGICK_HOME" : Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9", "DYLD_LIBRARY_PATH" : Bundle.main.resourcePath! + "/tools/ImageMagick-7.0.9/lib/"]
-        
-        do {
-            try imageMagic2.run()
-            imageMagic2.waitUntilExit()
-        } catch {
-            print(error)
-        }
         
         let bootDrcFile =  FileHandle(forWritingAtPath: "\(base)/meta/bootDrcTex.tga")
         bootDrcFile?.seekToEndOfFile()

@@ -39,7 +39,7 @@ struct Inject: ParsableCommand {
         
         let applicationSupportDir = String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/"
         
-        if !filem.fileExists(atPath: "\(applicationSupportDir)/commonKey"){
+        if !filem.fileExists(atPath: "\(applicationSupportDir)/commonKey") || !filem.fileExists(atPath: "\(applicationSupportDir)/nuspacker") || !filem.fileExists(atPath: "\(applicationSupportDir)/jnustool"){
             print("Please enter the wii u common key")
             let commonKey = readLine()!
             CommonKeyManager().saveCommonKey(commonKey: commonKey)
@@ -103,6 +103,7 @@ class CommonKeyManager {
         
         // create working dirs
         do {
+            try filem.createDirectory(atPath: applicationSupportDir, withIntermediateDirectories: true)
             try filem.createDirectory(atPath: "\(applicationSupportDir)/jnustool/", withIntermediateDirectories: true)
             try filem.createDirectory(atPath: "\(applicationSupportDir)/nuspacker/", withIntermediateDirectories: true)
         } catch {

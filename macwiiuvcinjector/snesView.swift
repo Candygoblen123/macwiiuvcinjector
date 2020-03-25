@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct snesView: View {
+struct SnesView: View {
     let inj = SnesInjector()
     let file = GetFile()
     @State var name :String = ""
@@ -137,8 +137,8 @@ struct snesView: View {
 
 
 
-struct snesView_Previews: PreviewProvider {
+struct SnesView_Previews: PreviewProvider {
     static var previews: some View {
-        snesView()
+        SnesView()
     }
 }
