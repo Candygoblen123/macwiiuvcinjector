@@ -1,0 +1,4 @@
+module MagickWand [system] {
+    header "/usr/local/include/ImageMagick-7/MagickWand/MagickWand.h"
+    export *
+}
