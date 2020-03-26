@@ -40,6 +40,7 @@ struct JnusTool {
         do {
             // try running java
             try java.run()
+            
             //wait until jnustool is done downloading the files
             java.waitUntilExit()
             if console == "wii" || console == "gamecube" {

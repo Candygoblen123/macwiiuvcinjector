@@ -13,6 +13,7 @@ struct SnesInjector {
     let jnustool = JnusTool()
     let filem = FileManager()
     
+    
     func inject(rom: String, iconTex: String, bootTvTex: String, titleId: String, titleKey: String, name: String) throws -> Bool {
         //let user define the output directory for final installable files
         let outputDir = file.saveFile(name: name) + "/"
@@ -26,6 +27,7 @@ struct SnesInjector {
         if !filem.fileExists(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase") {
             throw InjectorError.noJnustoolDownload
         }
+        
         
         
         // attempt to find the .rpx file in the code folder

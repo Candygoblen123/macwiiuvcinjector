@@ -18,7 +18,8 @@ struct SnesView: View {
     @State var titleId :String = ""
     @State var titleKey :String = ""
     
-    @State var injectorStatus:String = "Not started."
+    @EnvironmentObject var injectorStatus: InjectorStatus
+    
     @State var progressIsShowing = false
     
     @State var showError = false
@@ -93,10 +94,10 @@ struct SnesView: View {
                     
                     if !self.showError {
                         do {
-                            self.injectorStatus = "Injecting..."
+                            self.injectorStatus.injectorStatus = "Downloading Base..."
                             if try self.inj.inject(rom: self.romFile, iconTex: self.iconTexFile, bootTvTex: self.tvTexFile, titleId: self.titleId, titleKey: self.titleKey, name: self.name) {
                                 self.finishedInject = true
-                                self.injectorStatus = "Done!"
+                                //self.injectorStatus.injectorStatus = "Done!"
                             }
                         }catch InjectorError.noOutDirectory {
                             self.errorMessage = "You need to provide a directory that we can save the final injected game to."
@@ -127,7 +128,7 @@ struct SnesView: View {
                     Alert(title: Text("Finished"), message: Text("Your rom was succesfully injected."), dismissButton: .default(Text("Ok")))
                 }
                 
-                Text(self.injectorStatus)
+                Text(self.injectorStatus.injectorStatus)
             }
         }.padding()
     }

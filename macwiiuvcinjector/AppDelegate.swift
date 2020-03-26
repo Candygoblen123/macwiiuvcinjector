@@ -11,6 +11,7 @@ import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    var progress = InjectorStatus.init()
 
     var window: NSWindow!
     // a variable that gives the appiclation support directory for the user
@@ -31,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered, defer: false)
         window.center()
         window.setFrameAutosaveName("Injector")
-        window.contentView = NSHostingView(rootView: contentView)
+        window.contentView = NSHostingView(rootView: contentView.environmentObject(progress))
         window.makeKeyAndOrderFront(nil)
     }
 
@@ -40,6 +41,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
+}
+
+class InjectorStatus: ObservableObject {
+    @Published var injectorStatus: String
+    @Published var injectorProgress: Int
+    
+    init(){
+        self.injectorStatus = "Not Started."
+        self.injectorProgress = 0
+    }
+    
+    func updateStatus(injectorStatus: String) {
+        self.injectorStatus = injectorStatus
+    }
+    
+    func updateProgress(injectorProgress: Int) {
+        self.injectorProgress = injectorProgress
+    }
 }
 
 enum InjectorError: Error {
