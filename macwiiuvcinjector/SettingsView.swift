@@ -26,7 +26,7 @@ struct SettingsView: View {
                 self.settings.saveCommonKey(commonKey: self.tmpCommonKey)
             }
             
-        })
+            }).frame(minWidth: 425, minHeight: 265)
     }
 }
 

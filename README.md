@@ -40,8 +40,5 @@ brew install wiiuinjector
 #### With brew:
 ```shell
 brew remove wiiuinjector
-brew bundle dump
-brew bundle --force cleanup
-rm -rf ./Brewfile
 brew untap candygoblen123/macwiiuvcinjector
 ```

@@ -1,18 +1,18 @@
 //
-//  WiiView.swift
+//  snesView.swift
 //  macwiiuvcinjector
 //
-//  Created by Andrew Glaze on 3/5/20.
+//  Created by Candygoblen123 on 2/10/20.
 //  Copyright © 2020 Candygoblen123. All rights reserved.
 //
 
 import SwiftUI
 
-struct WiiView: View {
-    let inj = WiiInjector()
+struct NdsView: View {
+    let inj = NdsInjector()
     let file = GetFile()
     @State var name :String = ""
-    @State var romFile :String = "Please choose a ISO File"
+    @State var romFile :String = "Please choose a Rom File (.nds format)"
     @State var iconTexFile :String = "Please choose an iconTex file"
     @State var tvTexFile :String = "Please choose a bootTvTex file"
     @State var titleId :String = ""
@@ -32,7 +32,7 @@ struct WiiView: View {
             HStack {
                 Text("Rom: \(self.romFile)").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 Button(action: {
-                    self.romFile = self.file.browseFile(fileType: "iso")
+                    self.romFile = self.file.browseFile(fileType: "nds")
                 }){
                     Text("Select file...")
                 }
@@ -59,7 +59,7 @@ struct WiiView: View {
             }
             HStack {
                 Text("Title Id:")
-                TextField("We recommend using Rhythm Heaven Fever as the base", text: $titleId)
+                TextField("Please enter a Title Id for the base", text: $titleId)
             }
             HStack {
                 Text("Title Key:")
@@ -69,7 +69,7 @@ struct WiiView: View {
                 Button (action: {
                     self.errorMessage = "Please fill out every field."
                     
-                    if self.romFile == "Please choose a Rom File (.sfc format)" || self.romFile == "" {
+                    if self.romFile == "Please choose a Rom File (.nds format)" || self.romFile == "" {
                         self.showError = true
                     }else if self.iconTexFile == "Please choose an iconTex file" || self.iconTexFile == "" {
                         self.showError = true
@@ -93,7 +93,7 @@ struct WiiView: View {
                     
                     if !self.showError {
                         do {
-                            self.injectorStatus = "Injecting. This will take some time..."
+                            self.injectorStatus = "Injecting..."
                             if try self.inj.inject(rom: self.romFile, iconTex: self.iconTexFile, bootTvTex: self.tvTexFile, titleId: self.titleId, titleKey: self.titleKey, name: self.name) {
                                 self.finishedInject = true
                                 self.injectorStatus = "Done!"
@@ -112,6 +112,9 @@ struct WiiView: View {
                             self.showError = true
                         }catch InjectorError.noOutput {
                             self.errorMessage = "We couldn't encrypt the final output.  Please try again."
+                            self.showError = true
+                        }catch InjectorError.noJava {
+                            self.errorMessage = "Java does not appear to be installed, please install Java and try to inject again."
                             self.showError = true
                         }catch {
                             self.errorMessage = "An unexpected error has occurred, please open an issue on github."
@@ -132,8 +135,10 @@ struct WiiView: View {
     
 }
 
-struct WiiView_Previews: PreviewProvider {
+
+
+struct NdsView_Previews: PreviewProvider {
     static var previews: some View {
-        WiiView()
+        NdsView()
     }
 }

@@ -28,8 +28,11 @@ struct ImageHandler {
         MagickResizeImage(iconWand, 128, 128, LanczosFilter)
         MagickSetDepth(iconWand, 32)
         MagickSetImageCompression(iconWand, NoCompression)
+        MagickSetImageType(iconWand, TrueColorAlphaType)
         MagickSetImageOrientation(iconWand, BottomLeftOrientation)
         MagickFlipImage(iconWand)
+        
+        
         
         //write the image to file
         if MagickWriteImage(iconWand, "\(base)/meta/iconTex.tga") == MagickFalse {
@@ -66,7 +69,7 @@ struct ImageHandler {
         MagickResizeImage(tvWand, 1280, 720, LanczosFilter)
         MagickSetDepth(tvWand, 24)
         MagickSetImageCompression(tvWand, NoCompression)
-        MagickSetImageAlphaChannel(tvWand, DeactivateAlphaChannel)
+        MagickSetImageType(tvWand, TrueColorType)
         MagickSetImageOrientation(tvWand, BottomLeftOrientation)
         MagickFlipImage(tvWand)
         
@@ -74,7 +77,7 @@ struct ImageHandler {
         MagickResizeImage(drcWand, 854, 480, LanczosFilter)
         MagickSetDepth(drcWand, 24)
         MagickSetImageCompression(drcWand, NoCompression)
-        MagickSetImageAlphaChannel(drcWand, DeactivateAlphaChannel)
+        MagickSetImageType(drcWand, TrueColorType)
         MagickSetImageOrientation(drcWand, BottomLeftOrientation)
         MagickFlipImage(drcWand)
         

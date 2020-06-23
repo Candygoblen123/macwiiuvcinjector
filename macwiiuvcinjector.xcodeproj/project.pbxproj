@@ -10,6 +10,7 @@
 		491A4C3B23F2E09B00452039 /* SnesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A4C3A23F2E09B00452039 /* SnesView.swift */; };
 		492D781D24074F910070E0FB /* XmlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781C24074F910070E0FB /* XmlHandler.swift */; };
 		492D781F240752E40070E0FB /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D781E240752E40070E0FB /* XML.swift */; };
+		4934C9D624A26423009E52C3 /* NdsInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA5D6524353E7500E7C214 /* NdsInjector.swift */; };
 		49355073241815BE0004315A /* GcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49355072241815BE0004315A /* GcView.swift */; };
 		49355075241816460004315A /* GcInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49355074241816460004315A /* GcInjector.swift */; };
 		4941505324195B0000F48C25 /* SnesInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */; };
@@ -31,6 +32,8 @@
 		49E27F9D24113A7400790B50 /* WiiInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27F9C24113A7400790B50 /* WiiInjector.swift */; };
 		49E99F4B23F4DC38002AD9AF /* SnesInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */; };
 		49E99F4D23F4E718002AD9AF /* JnusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E99F4C23F4E718002AD9AF /* JnusTool.swift */; };
+		49EA5D612435218E00E7C214 /* NdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA5D602435218E00E7C214 /* NdsView.swift */; };
+		49EA5D6624353E7500E7C214 /* NdsInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA5D6524353E7500E7C214 /* NdsInjector.swift */; };
 		49EC4284241BF28A00832471 /* tools in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49934318241BF1A300F9F9D2 /* tools */; };
 		49F4A67323F2332E00B8D0CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4A67223F2332E00B8D0CF /* AppDelegate.swift */; };
 		49F4A67523F2332E00B8D0CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4A67423F2332E00B8D0CF /* ContentView.swift */; };
@@ -74,6 +77,8 @@
 		49E27F9C24113A7400790B50 /* WiiInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiiInjector.swift; sourceTree = "<group>"; };
 		49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnesInjector.swift; sourceTree = "<group>"; };
 		49E99F4C23F4E718002AD9AF /* JnusTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JnusTool.swift; sourceTree = "<group>"; };
+		49EA5D602435218E00E7C214 /* NdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NdsView.swift; sourceTree = "<group>"; };
+		49EA5D6524353E7500E7C214 /* NdsInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NdsInjector.swift; sourceTree = "<group>"; };
 		49F4A66F23F2332E00B8D0CF /* macwiiuvcinjector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macwiiuvcinjector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F4A67223F2332E00B8D0CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F4A67423F2332E00B8D0CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +145,8 @@
 				49DDEC48240866DB00738700 /* ImageHandler.swift */,
 				492D781E240752E40070E0FB /* XML.swift */,
 				491A4C3A23F2E09B00452039 /* SnesView.swift */,
+				49EA5D602435218E00E7C214 /* NdsView.swift */,
+				49EA5D6524353E7500E7C214 /* NdsInjector.swift */,
 				49E27F9A241139F500790B50 /* WiiView.swift */,
 				49E27F9C24113A7400790B50 /* WiiInjector.swift */,
 				49E99F4A23F4DC38002AD9AF /* SnesInjector.swift */,
@@ -205,6 +212,8 @@
 			dependencies = (
 			);
 			name = macwiiuvcinjector;
+			packageProductDependencies = (
+			);
 			productName = macwiiuvcinjector;
 			productReference = 49F4A66F23F2332E00B8D0CF /* macwiiuvcinjector.app */;
 			productType = "com.apple.product-type.application";
@@ -269,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4934C9D624A26423009E52C3 /* NdsInjector.swift in Sources */,
 				499D163224199E0600625EE1 /* XmlHandler.swift in Sources */,
 				499D162F24199DED00625EE1 /* XML.swift in Sources */,
 				4941505324195B0000F48C25 /* SnesInjector.swift in Sources */,
@@ -294,7 +304,9 @@
 				492D781D24074F910070E0FB /* XmlHandler.swift in Sources */,
 				4995E64B240942C3009F0DD9 /* NusPacker.swift in Sources */,
 				49E99F4D23F4E718002AD9AF /* JnusTool.swift in Sources */,
+				49EA5D612435218E00E7C214 /* NdsView.swift in Sources */,
 				49355073241815BE0004315A /* GcView.swift in Sources */,
+				49EA5D6624353E7500E7C214 /* NdsInjector.swift in Sources */,
 				49F4A67523F2332E00B8D0CF /* ContentView.swift in Sources */,
 				49355075241816460004315A /* GcInjector.swift in Sources */,
 				49E99F4B23F4DC38002AD9AF /* SnesInjector.swift in Sources */,
@@ -407,6 +419,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/MagickWand",
+					"/usr/local/lib/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -437,12 +453,12 @@
 					"-L/usr/local/opt/imagemagick/lib",
 					"-lMagickWand-7.Q16HDRI",
 					"-lMagickCore-7.Q16HDRI",
-					"-L/usr/local/Cellar/little-cms2/2.9/lib",
+					"-L/usr/local/Cellar/little-cms2/2.10_1/lib",
 					"-llcms2",
 					"-L/usr/local/opt/freetype/lib",
 					"-lfreetype",
 					"-lxml2",
-					"-L/usr/local/Cellar/xz/5.2.4/lib",
+					"-L/usr/local/Cellar/xz/5.2.5/lib",
 					"-llzma",
 					"-lbz2",
 					"-lz",
@@ -516,6 +532,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/MagickWand",
+					"/usr/local/lib/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_USE_STANDARD_INCLUDE_SEARCHING = YES;
@@ -539,12 +559,12 @@
 					"-L/usr/local/opt/imagemagick/lib",
 					"-lMagickWand-7.Q16HDRI",
 					"-lMagickCore-7.Q16HDRI",
-					"-L/usr/local/Cellar/little-cms2/2.9/lib",
+					"-L/usr/local/Cellar/little-cms2/2.10_1/lib",
 					"-llcms2",
 					"-L/usr/local/opt/freetype/lib",
 					"-lfreetype",
 					"-lxml2",
-					"-L/usr/local/Cellar/xz/5.2.4/lib",
+					"-L/usr/local/Cellar/xz/5.2.5/lib",
 					"-llzma",
 					"-lbz2",
 					"-lz",
@@ -601,6 +621,44 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.2.0;
+				OTHER_LDFLAGS = (
+					"-L/usr/local/opt/imagemagick/lib",
+					"-lMagickWand-7.Q16HDRI",
+					"-lMagickCore-7.Q16HDRI",
+					"-L/usr/local/Cellar/little-cms2/2.10_1/lib",
+					"-llcms2",
+					"-L/usr/local/opt/freetype/lib",
+					"-lfreetype",
+					"-lxml2",
+					"-L/usr/local/Cellar/xz/5.2.5/lib",
+					"-llzma",
+					"-lbz2",
+					"-lz",
+					"-lltdl",
+					"-lm",
+					"-lm",
+					"-L/usr/local/Cellar/libtool/2.4.6_1/lib/",
+					"-llcms2",
+					"-ltiff",
+					"-L/usr/local/lib",
+					"-lfreetype",
+					"-ljpeg",
+					"-L/usr/local/lib",
+					"-lwebp",
+					"-L/usr/local/lib",
+					"-lpng16",
+					"-lz",
+					"-lbz2",
+					"-L/usr/local/lib",
+					"-lstdc++",
+					"-llcms2",
+					"-L/usr/local/lib",
+					"-lxml2",
+					"-L/usr/local/lib",
+					"-lz",
+					"-lm",
+					"-lm",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Candygoblen123.macwiiuvcinjector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -627,6 +685,44 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.2.0;
+				OTHER_LDFLAGS = (
+					"-L/usr/local/opt/imagemagick/lib",
+					"-lMagickWand-7.Q16HDRI",
+					"-lMagickCore-7.Q16HDRI",
+					"-L/usr/local/Cellar/little-cms2/2.10_1/lib",
+					"-llcms2",
+					"-L/usr/local/opt/freetype/lib",
+					"-lfreetype",
+					"-lxml2",
+					"-L/usr/local/Cellar/xz/5.2.5/lib",
+					"-llzma",
+					"-lbz2",
+					"-lz",
+					"-lltdl",
+					"-lm",
+					"-lm",
+					"-L/usr/local/Cellar/libtool/2.4.6_1/lib/",
+					"-llcms2",
+					"-ltiff",
+					"-L/usr/local/lib",
+					"-lfreetype",
+					"-ljpeg",
+					"-L/usr/local/lib",
+					"-lwebp",
+					"-L/usr/local/lib",
+					"-lpng16",
+					"-lz",
+					"-lbz2",
+					"-L/usr/local/lib",
+					"-lstdc++",
+					"-llcms2",
+					"-L/usr/local/lib",
+					"-lxml2",
+					"-L/usr/local/lib",
+					"-lz",
+					"-lm",
+					"-lm",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Candygoblen123.macwiiuvcinjector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

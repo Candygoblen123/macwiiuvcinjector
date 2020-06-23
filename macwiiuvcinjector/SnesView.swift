@@ -113,6 +113,9 @@ struct SnesView: View {
                         }catch InjectorError.noOutput {
                             self.errorMessage = "We couldn't encrypt the final output.  Please try again."
                             self.showError = true
+                        }catch InjectorError.noJava {
+                            self.errorMessage = "Java does not appear to be installed, please install Java and try to inject again."
+                            self.showError = true
                         }catch {
                             self.errorMessage = "An unexpected error has occurred, please open an issue on github."
                             self.showError = true
@@ -123,13 +126,10 @@ struct SnesView: View {
                 }.alert(isPresented: self.$showError) {
                     Alert(title: Text("Error."), message: Text(errorMessage), dismissButton: .default(Text("Dismiss")))
                 }
-                .alert(isPresented: self.$finishedInject) {
-                    Alert(title: Text("Finished"), message: Text("Your rom was succesfully injected."), dismissButton: .default(Text("Ok")))
-                }
                 
                 Text(self.injectorStatus)
             }
-        }.padding()
+        }.padding().frame(minWidth: 427, maxWidth: .infinity, minHeight: 265,  maxHeight: .infinity)
     }
     
     

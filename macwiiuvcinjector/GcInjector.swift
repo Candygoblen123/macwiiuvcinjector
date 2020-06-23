@@ -22,7 +22,12 @@ struct GcInjector {
             throw InjectorError.noOutDirectory
         }
         
-        let base = jnustool.get(titleId: titleId, titleKey: titleKey, console: "gamecube")
+        let base: String
+        do {
+            base = try jnustool.get(titleId: titleId, titleKey: titleKey, console: "gamecube")
+        }catch InjectorError.noJava{
+            throw InjectorError.noJava
+        }
         
         if !filem.fileExists(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase") {
             throw InjectorError.noJnustoolDownload

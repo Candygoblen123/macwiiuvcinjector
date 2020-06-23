@@ -9,11 +9,14 @@
 import Foundation
 let filem = FileManager()
 // create a new, randomized titleid
-let newTitleId = "00050000" + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10))
+var newTitleId: String = XmlHandler().generateTitleId()
+
+let applicationSupportDir = String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/"
 
 class XmlHandler {
 
     func appXml(base :String) {
+        
         // phrase app.xml, set a new titleid, then overwrite with our new app.xml
         guard let appXml = XML(contentsOf: URL(fileURLWithPath: "\(base)/code/app.xml")) else {return}
         
@@ -34,11 +37,15 @@ class XmlHandler {
         filem.createFile(atPath: "\(base)/code/app.xml", contents: str.data(using: .utf8))
     }
     
-    func metaXml(base: String, name: String) {
+    func metaXml(base: String, name: String, console: String? = nil) {
         // phrase meta.xml, set a new titleid and name, then overwrite with our new meta.xml
          guard let metaXml = XML(contentsOf: URL(fileURLWithPath: "\(base)/meta/meta.xml")) else {return}
         
         metaXml[0]["title_id"]?.text = newTitleId
+        
+        if (console == "nds") {
+            metaXml[0]["product_code"]?.text = "WUP-N-INJT"
+        }
         
         metaXml[0]["longname_ja"]?.text = name
         metaXml[0]["longname_en"]?.text = name
@@ -82,5 +89,60 @@ class XmlHandler {
         filem.createFile(atPath: "\(base)/meta/meta.xml", contents: str.data(using: .utf8))
       
       
+    }
+    
+    func generateTitleId() -> String {
+        
+        if !filem.fileExists(atPath: "\(applicationSupportDir)/usedTitleIds.xml"){
+            filem.createFile(atPath: "\(applicationSupportDir)/usedTitleIds.xml", contents: nil)
+            let tmpTitleId = "000500002" + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10))
+            
+            let oldTitleIds = XML(contentsOf: URL(fileURLWithPath: "\(applicationSupportDir)/usedTitleIds.xml"))
+           
+            let titleIdNode = XMLNode(name: "TitleIds")
+            oldTitleIds?.addChild(titleIdNode)
+            oldTitleIds?[0].addChild(name: "Id", value: tmpTitleId)
+            
+            var str :String = ""
+            if let xml = try? XMLDocument.init(xmlString: oldTitleIds!.description) {
+               let data = xml.xmlData(options:.nodePrettyPrint)
+               str = String(data: data, encoding: .utf8)!
+            }
+            
+            try! filem.removeItem(atPath: "\(applicationSupportDir)/usedTitleIds.xml")
+            filem.createFile(atPath: "\(applicationSupportDir)/usedTitleIds.xml", contents: str.data(using: .utf8))
+            return tmpTitleId
+            
+        }else {
+            let oldTitleIds = XML(contentsOf: URL(fileURLWithPath: "\(applicationSupportDir)/usedTitleIds.xml"))
+            
+            let tmpTitleId = "000500002" + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10)) + String(Int.random(in: 0 ..< 10))
+            
+            for id in (0...oldTitleIds![0].children.count - 1)  {
+                if oldTitleIds?[0][id].text == tmpTitleId{
+                    return generateTitleId()
+                }
+                
+            }
+            
+            oldTitleIds?[0].addChild(name: "Id", value: tmpTitleId)
+            
+            var str :String = ""
+            if let xml = try? XMLDocument.init(xmlString: oldTitleIds!.description) {
+               let data = xml.xmlData(options:.nodePrettyPrint)
+               str = String(data: data, encoding: .utf8)!
+            }
+            
+            try! filem.removeItem(atPath: "\(applicationSupportDir)/usedTitleIds.xml")
+            filem.createFile(atPath: "\(applicationSupportDir)/usedTitleIds.xml", contents: str.data(using: .utf8))
+            
+            return tmpTitleId
+            
+        }
+        
+        
+        
+        
+        
     }
 }

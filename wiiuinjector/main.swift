@@ -82,6 +82,13 @@ struct Inject: ParsableCommand {
                 }
             }
         }
+        if console == Console(rawValue: "nds"){
+            do{
+                if try NdsInjector().inject(rom: rom, iconTex: iconTex, bootTvTex: bootTvTex, titleId: titleId, titleKey: titleKey, name: name) {
+                    Self.exit()
+                }
+            }
+        }
     }
 }
 
@@ -137,7 +144,7 @@ class CommonKeyManager {
 }
 
 enum Console: String, ExpressibleByArgument {
-    case snes, wii, gamecube
+    case snes, wii, gamecube, nds
 }
 
 enum InjectorError: Error {
@@ -148,6 +155,7 @@ enum InjectorError: Error {
     case noIcon
     case noBootTv
     case noOutput
+    case noJava
 }
 
 //print(String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/")

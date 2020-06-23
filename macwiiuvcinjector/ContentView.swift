@@ -26,6 +26,9 @@ struct ContentView: View {
                     NavigationLink(destination: SnesView()) {
                         Text("Super Nintendo Entertainment System").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
+                    NavigationLink(destination: NdsView()){
+                        Text("Nintendo DS").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    }
                     NavigationLink(destination: WiiView()){
                         Text("Wii").frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
@@ -38,7 +41,7 @@ struct ContentView: View {
                 }
                 
             }
-        }.padding()
+            }.padding().frame(minWidth: 250, minHeight: 268)
     }
 }
 

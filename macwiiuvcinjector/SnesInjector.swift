@@ -21,8 +21,12 @@ struct SnesInjector {
         if outputDir == "/" {
             throw InjectorError.noOutDirectory
         }
-        
-        let base = jnustool.get(titleId: titleId, titleKey: titleKey)
+        let base: String
+        do {
+            base = try jnustool.get(titleId: titleId, titleKey: titleKey)
+        }catch InjectorError.noJava{
+            throw InjectorError.noJava
+        }
         
         if !filem.fileExists(atPath: String(filem.temporaryDirectory.path) + "/jnustoolBase") {
             throw InjectorError.noJnustoolDownload
@@ -124,14 +128,14 @@ struct SnesInjector {
         ImageHandler().icon(iconTex: iconTex, base: base)
         ImageHandler().bootTv(bootTvTex: bootTvTex, base: base)
         
-        if !(filem.fileExists(atPath: "\(base)/meta/icon.xml") || filem.fileExists(atPath: "\(base)/meta/bootTvTex.tga") || filem.fileExists(atPath: "\(base)/meta/bootDrcTex.tga")) {
+        if !(filem.fileExists(atPath: "\(base)/meta/icon.tga") || filem.fileExists(atPath: "\(base)/meta/bootTvTex.tga") || filem.fileExists(atPath: "\(base)/meta/bootDrcTex.tga")) {
             throw InjectorError.noIcon
         }
         
         //package and encrypt the game for installation 
         NusPacker().pack(base: base, outputDir: outputDir)
         
-        if try! filem.contentsOfDirectory(atPath: base) == [] {
+        if try! filem.contentsOfDirectory(atPath: outputDir) == [] {
             throw InjectorError.noOutput
         }
         

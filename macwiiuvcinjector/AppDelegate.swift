@@ -11,7 +11,6 @@ import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var progress = InjectorStatus.init()
 
     var window: NSWindow!
     // a variable that gives the appiclation support directory for the user
@@ -27,12 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Create the window and set the content view. 
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 10000, height: 5000),
-            styleMask: [.titled, .closable, .miniaturizable,  .fullSizeContentView, .resizable],
+            contentRect: NSRect(x: 0, y: 0, width: 720, height: 373),
+            styleMask: [.titled, .closable, .miniaturizable,  .fullSizeContentView],
             backing: .buffered, defer: false)
         window.center()
         window.setFrameAutosaveName("Injector")
-        window.contentView = NSHostingView(rootView: contentView.environmentObject(progress))
+        window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
     }
 
@@ -43,23 +42,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 }
 
-class InjectorStatus: ObservableObject {
-    @Published var injectorStatus: String
-    @Published var injectorProgress: Int
-    
-    init(){
-        self.injectorStatus = "Not Started."
-        self.injectorProgress = 0
-    }
-    
-    func updateStatus(injectorStatus: String) {
-        self.injectorStatus = injectorStatus
-    }
-    
-    func updateProgress(injectorProgress: Int) {
-        self.injectorProgress = injectorProgress
-    }
-}
 
 enum InjectorError: Error {
     case noOutDirectory
@@ -67,4 +49,5 @@ enum InjectorError: Error {
     case noXml
     case noIcon
     case noOutput
+    case noJava
 }

@@ -17,6 +17,7 @@ struct GcView: View {
     @State var tvTexFile :String = "Please choose a bootTvTex file"
     @State var titleId :String = ""
     @State var titleKey :String = ""
+    @State var compressIso :Bool = false
     
     @State var injectorStatus:String = "Not started."
     @State var progressIsShowing = false
@@ -64,6 +65,11 @@ struct GcView: View {
             HStack {
                 Text("Title Key:")
                 TextField("Please enter a Title Key for the base", text: $titleKey)
+            }
+            HStack {
+                Toggle(isOn: $compressIso){
+                    Text("Compress Iso (Note: This may cause some games to break.)")
+                }
             }
             HStack {
                 Button (action: {
@@ -124,17 +130,9 @@ struct GcView: View {
                 }.alert(isPresented: self.$showError) {
                     Alert(title: Text("Error."), message: Text(errorMessage), dismissButton: .default(Text("Dismiss")))
                 }
-                .alert(isPresented: self.$finishedInject) {
-                    Alert(title: Text("Finished"), message: Text("Your rom was succesfully injected. (For GameCube injects, you will need nintendon't on the SD card. Note that you will not need to put your game's .iso(s) on the SD card, even though that the linked website says that you do.)"), primaryButton: .default(Text("Ok")), secondaryButton: .cancel(Text("Get Nintendon't"), action: {
-                        if let url = URL(string: "https://github.com/FIX94/Nintendont"){
-                            NSWorkspace.shared.open(url)
-                        }
-                    }))
-                }
-                
                 Text(self.injectorStatus)
             }
-        }.padding()
+        }.padding().frame(minWidth: 427, maxWidth: .infinity, minHeight: 265,  maxHeight: .infinity)
     }
     
     

@@ -14,7 +14,12 @@ struct JnusTool {
     let jar = Bundle.main.resourcePath! + "/tools/jnustool/JNUSTool.jar"
     var applicationSupportDir = String(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.path) + "/macwiiuvcinjector/"
     
-    func get(titleId: String, titleKey: String, console: String? = nil) -> String {
+    func get(titleId: String, titleKey: String, console: String? = nil) throws -> String {
+        
+        if !filem.fileExists(atPath: "/usr/bin/java"){
+            throw InjectorError.noJava
+        }
+        
         let java = Process()
         let java1 = Process()
         let java2 = Process()
