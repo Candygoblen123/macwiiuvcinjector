@@ -15,12 +15,6 @@ A script that will inject roms into wiiu vc games on Catalina
 - [x] Wii injector
 - [x] GCN injector (If your Gamecube inject does not work, try  [this](https://github.com/FIX94/Nintendont/blob/f0694cd68c126ada84fda81307639b3d4e3f72e4/loader/loader.dol) version of nintendon't.)
 
-#### Key
-- [x] Checked boxes are complete
-- [ ] ~~Strikethrough are given up on~~
-- [ ] Empty boxes are upcoming
-- [ ] *italics is up next*
-
 ### Install
 #### Have Homebrew (macos) already? Run this in terminal:
 ```shell
